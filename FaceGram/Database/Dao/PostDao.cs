@@ -7,5 +7,6 @@ namespace FaceGram.Database.Dao
 {
     public class PostDao : IPostDao
     {
+
     }
 }

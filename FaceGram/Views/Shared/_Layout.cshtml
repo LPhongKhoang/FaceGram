@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <!--Custom Css-->
     <link rel="stylesheet" href="~/Assets/Css/style.css" />
+    @RenderSection("StylePage", false)
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
         <div class="container">
             @*<div class="navbar-header">
-                
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>*@
+
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>*@
 
             <div class="row">
                 <div class="col-lg-4 col-md-4">
@@ -42,12 +43,12 @@
                     <div class="features">
                         <ul>
                             <li><a href="@Url.Action("Index","Explore")"><img src="~/Assets/Images/web_icon/explore.PNG" class="img-responsive" /></a></li>
-                            <li><a href="@Url.Action("Index","Favorite")"><img src="~/Assets/Images/web_icon/favorite.PNG" class="img-responsive"/></a></li>
-                            <li><a href="@Url.Action("Index","Profile")"><img src="~/Assets/Images/web_icon/profile.PNG" class="img-responsive"/></a></li>
+                            <li><a href="@Url.Action("Index","Favorite")"><img src="~/Assets/Images/web_icon/favorite.PNG" class="img-responsive" /></a></li>
+                            <li><a href="@Url.Action("Index","MyProfile")"><img src="~/Assets/Images/web_icon/profile.PNG" class="img-responsive" /></a></li>
                         </ul>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
@@ -55,13 +56,13 @@
     <div class="container body-content">
         <div class="section">
             @RenderBody()
-        </div> 
+        </div>
     </div>
     <!--JQuery-->
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <!--Bootstrap core javascript-->
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("ScriptPage", false)
 
-  
 </body>
 </html>

@@ -8,5 +8,6 @@ namespace FaceGram.Database.Dao
 {
     interface IPostDao
     {
+        
     }
 }

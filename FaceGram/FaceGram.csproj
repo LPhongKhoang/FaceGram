@@ -246,8 +246,10 @@
     <Compile Include="Database\Dao\ICommentDao.cs" />
     <Compile Include="Database\Dao\IFavoriteDao.cs" />
     <Compile Include="Database\Dao\IPostDao.cs" />
+    <Compile Include="Database\Dao\IRelationshipDao.cs" />
     <Compile Include="Database\Dao\IUserDao.cs" />
     <Compile Include="Database\Dao\PostDao.cs" />
+    <Compile Include="Database\Dao\RelationShipDao.cs" />
     <Compile Include="Database\Dao\UserDao.cs" />
     <Compile Include="Database\EF\Comment.cs" />
     <Compile Include="Database\EF\FaceGramDbContext.cs" />
@@ -268,6 +270,7 @@
     <Compile Include="Service\TestService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Css\homeStyle.css" />
     <Content Include="Assets\Css\loginStyle.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

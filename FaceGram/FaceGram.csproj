@@ -241,7 +241,13 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Database\Dao\CommentDao.cs" />
+    <Compile Include="Database\Dao\FavoriteDao.cs" />
+    <Compile Include="Database\Dao\ICommentDao.cs" />
+    <Compile Include="Database\Dao\IFavoriteDao.cs" />
+    <Compile Include="Database\Dao\IPostDao.cs" />
     <Compile Include="Database\Dao\IUserDao.cs" />
+    <Compile Include="Database\Dao\PostDao.cs" />
     <Compile Include="Database\Dao\UserDao.cs" />
     <Compile Include="Database\EF\Comment.cs" />
     <Compile Include="Database\EF\FaceGramDbContext.cs" />

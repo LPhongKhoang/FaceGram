@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FaceGram.Database.Dao
+namespace FaceGram.Service
 {
-    interface IPostDao
+    interface IProfileService
     {
     }
 }

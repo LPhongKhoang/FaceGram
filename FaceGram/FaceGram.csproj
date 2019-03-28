@@ -240,6 +240,7 @@
     <Compile Include="Common\LoginedUser.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
+    <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Database\Dao\CommentDao.cs" />

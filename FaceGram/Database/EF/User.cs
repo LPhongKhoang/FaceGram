@@ -12,10 +12,10 @@ namespace FaceGram.Database.EF
         public User()
         {
             Comments = new HashSet<Comment>();
+            Favorites = new HashSet<Favorite>();
             Posts = new HashSet<Post>();
-            Posts1 = new HashSet<Post>();
-            Users1 = new HashSet<User>();
-            Users = new HashSet<User>();
+            Relationships = new HashSet<Relationship>();
+            Relationships1 = new HashSet<Relationship>();
         }
 
         [StringLength(20)]
@@ -51,17 +51,17 @@ namespace FaceGram.Database.EF
         public virtual ICollection<Comment> Comments { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Favorite> Favorites { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Posts { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Relationship> Relationships { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Relationship> Relationships1 { get; set; }
+
         public virtual Role Role { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Post> Posts1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
     }
 }

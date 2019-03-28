@@ -5,13 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FaceGram.Database.Dao
+namespace FaceGram.Service
 {
-    public interface IUserDao
+    public interface IUserService
     {
-        string insert(User user);
-
-        char isExistUser(string email, string password);
+        char verifyAccount(string email, string password);
 
         User getByEmail(string email);
     }

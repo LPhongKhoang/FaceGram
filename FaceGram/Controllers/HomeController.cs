@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace FaceGram.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         ITestService testService;
 

@@ -26,6 +26,7 @@ namespace FaceGram
             container.RegisterSingleton<FaceGramDbContext>();
             container.RegisterSingleton<IUserDao, UserDao>();
             container.RegisterSingleton<ITestService, TestService>();
+            container.RegisterSingleton<IUserService, UserService>();
         }
     }
 }

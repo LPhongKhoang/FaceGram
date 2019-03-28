@@ -236,23 +236,33 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Common\CommonConstant.cs" />
+    <Compile Include="Common\LoginedUser.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Database\Dao\IUserDao.cs" />
     <Compile Include="Database\Dao\UserDao.cs" />
     <Compile Include="Database\EF\Comment.cs" />
     <Compile Include="Database\EF\FaceGramDbContext.cs" />
+    <Compile Include="Database\EF\Favorite.cs" />
     <Compile Include="Database\EF\Post.cs" />
+    <Compile Include="Database\EF\Relationship.cs" />
     <Compile Include="Database\EF\Role.cs" />
     <Compile Include="Database\EF\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NewFeedModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\ITestService.cs" />
+    <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\TestService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Css\loginStyle.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -286,10 +296,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Images\web_icon\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

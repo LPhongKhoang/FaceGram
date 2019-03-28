@@ -1,4 +1,5 @@
-﻿using FaceGram.Database.EF;
+﻿using FaceGram.Common;
+using FaceGram.Database.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,11 @@ namespace FaceGram.Database.Dao
             this.dbContext = dbContext;
         }
 
+        public User getByEmail(string email)
+        {
+            return dbContext.Users.SingleOrDefault(x => x.email == email);
+        }
+
         // return user id
         public string insert(User user)
         {
@@ -25,5 +31,17 @@ namespace FaceGram.Database.Dao
             return user.id;
         }
 
+        public char isExistUser(string email, string password)
+        {
+            int count = dbContext.Users.Count(x => x.email == email && x.password == password);
+            if(count == 1)
+            {
+                return CommonConstant.LOGIN_OK;
+            }
+            else
+            {
+                return CommonConstant.LOGIN_FAIL;
+            }
+        }
     }
 }

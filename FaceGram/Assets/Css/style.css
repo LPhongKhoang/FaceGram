@@ -1,0 +1,43 @@
+﻿body {
+    background-color: #f3f3f3;
+}
+
+.container{
+    max-width: 800px;
+}
+
+.section{
+    height: 200px; /*just for design processing*/
+}
+
+/*style for header*/
+
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.navbar .container .row{
+    padding-top: 15px;
+}
+
+.features{
+    margin-top: -5px;
+}
+
+.features ul{
+    list-style-type: none;
+    text-align: right;
+}
+.features ul li{
+    display: inline-block;
+    margin-left: 10px;
+
+}
+
+/*style for body*/
+.body-content{
+    margin-top: 80px;
+}
+
+

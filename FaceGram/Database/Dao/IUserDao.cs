@@ -14,5 +14,15 @@ namespace FaceGram.Database.Dao
         char isExistUser(string email, string password);
 
         User getByEmail(string email);
+
+        User getUserByEmailPass(string email, string password);
+
+        string getUserName(string uid);
+
+        User getUserByID(string id);
+
+        List<User> getListUser();
+
+        List<User> getUserExcept(string id);
     }
 }

@@ -239,6 +239,7 @@
     <Compile Include="Common\CommonConstant.cs" />
     <Compile Include="Common\LoginedUser.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EditProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Database\Dao\CommentDao.cs" />
@@ -246,10 +247,8 @@
     <Compile Include="Database\Dao\ICommentDao.cs" />
     <Compile Include="Database\Dao\IFavoriteDao.cs" />
     <Compile Include="Database\Dao\IPostDao.cs" />
-    <Compile Include="Database\Dao\IRelationshipDao.cs" />
     <Compile Include="Database\Dao\IUserDao.cs" />
     <Compile Include="Database\Dao\PostDao.cs" />
-    <Compile Include="Database\Dao\RelationShipDao.cs" />
     <Compile Include="Database\Dao\UserDao.cs" />
     <Compile Include="Database\EF\Comment.cs" />
     <Compile Include="Database\EF\FaceGramDbContext.cs" />
@@ -264,14 +263,19 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NewFeedModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\IProfileService.cs" />
     <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\ITestService.cs" />
+    <Compile Include="Service\ProfileService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\TestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Css\homeStyle.css" />
+    <Content Include="Assets\Css\editProfile.css" />
     <Content Include="Assets\Css\loginStyle.css" />
+    <Content Include="Assets\Css\profileStyle.css" />
+    <Content Include="Assets\Js\uploadPostScript.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -306,6 +310,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\MyProfile\Index.cshtml" />
+    <Content Include="Views\EditProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace FaceGram.Controllers
 {
     public class BaseController : Controller
@@ -19,6 +20,11 @@ namespace FaceGram.Controllers
             }
 
             base.OnActionExecuting(filterContext);
+        }
+
+        protected LoginedUser getUserInSession()
+        {
+            return (LoginedUser) Session[CommonConstant.USER_SESSION];
         }
     }
 }

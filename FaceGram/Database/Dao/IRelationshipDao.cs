@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace FaceGram.Database.Dao
 {
-    interface IRelationshipDao
+    public interface IRelationshipDao
     {
+        int getNumberUserFollow(string uid);
+
+        int getNumberRelationship(string uid);
     }
 }

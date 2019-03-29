@@ -21,18 +21,16 @@
     position: absolute;
     width: 60%;
     height: 1000px;
-    right: 27%;
+    right: 24%;
 }
 
 
 .p-username {
-    margin-left: 65px;
+    margin-left: 30px;
 }
 
-
-
 .option {
-    margin-left: 239px;
+    margin-left: 167px;
 }
 
 .row-0 {
@@ -58,7 +56,7 @@
 
 #avatar2 {
     margin-top: 10px;
-    margin-left: 110px;
+    margin-left: 73px;
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -74,6 +72,7 @@
 
 .title {
     text-align: right;
+    padding-right: 40px;
 }
 
 .content {
@@ -98,10 +97,6 @@
     margin-top: 9px;
     float: left;
     font-size: 35px;
-}
-
-.center {
-    padding-left: 96px;
 }
 
 .tag-file {

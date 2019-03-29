@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FaceGram.Database.EF;
 using FaceGram.Models;
 
 namespace FaceGram.Service
 {
-    public interface IProfileService
+    public interface IAdminService
     {
         UserProfileModel getUser(string userID);
 
-        ProfileModel getProfileModel(string userID);
-
-        List<PostProfileModel> getCurrentPost(string userID);
-
+        AdminModel getProfileModel(string userID, string linkClicked);
     }
 }

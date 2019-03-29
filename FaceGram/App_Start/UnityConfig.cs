@@ -25,8 +25,15 @@ namespace FaceGram
             // it is NOT necessary to register your controllers
             container.RegisterSingleton<FaceGramDbContext>();
             container.RegisterSingleton<IUserDao, UserDao>();
+            container.RegisterSingleton<IPostDao, PostDao>();
+            container.RegisterSingleton<IRelationshipDao, RelationshipDao>();
             container.RegisterSingleton<ITestService, TestService>();
             container.RegisterSingleton<IUserService, UserService>();
+            container.RegisterSingleton<IProfileService, ProfileService>();
+            container.RegisterSingleton<IRelationshipService, RelationshipService>();
+            container.RegisterSingleton<IEditProfileService, EditProfileService>();
+            container.RegisterSingleton<ILogoutService, LogoutService>();
+            container.RegisterSingleton<IAdminService, AdminService>();
         }
     }
 }

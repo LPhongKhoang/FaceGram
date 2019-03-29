@@ -3,6 +3,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model FaceGram.Models.UserProfileModel
+
 @section StylePage {
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -11,7 +13,9 @@
 <div class="background-edit">
  <div class="user-profile-bot">
                     <div class="mid-profile">
-                        <form action="update-profile" method="POST">
+                        @using (Html.BeginForm("EditProfile", "EditProfile", FormMethod.Post))
+						{
+						@Html.ValidationSummary(true, string.Empty, new { @class="text-danger"})
 						<div class="avatar-username">
 						<img id="avatar2" style="background-image: url('https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/54728416_1519749971489145_4888168241685331968_n.jpg?_nc_cat=1&_nc_oc=AQmjFMGAGa8J5WVybXQTdEkn25AUdXexyhad2wM9WhHxYuO_XwkC7SmK0IRaguNpZck&_nc_ht=scontent.fhan2-2.fna&oh=3ed792ab2cb4519f8004e0c4e7f9af26&oe=5D41240A')">
                                           <!--Don't suggest-->
@@ -30,49 +34,48 @@
                                 <tr class="row rowName">
                                     <td class="title">Name</td>
                                     <td class="content">
-                                        <input type="text" name="fullname" value=" ">
+									@Html.TextBoxFor(model=>@Model.fullname, new { @class="form-control", @autofocus="autofocus", @placeholder="Your Email"})
+									@Html.ValidationMessageFor(model => @Model.fullname, string.Empty, new { @class = "text-danger" } )
                                     </td>
                                 </tr>
                                 <tr class="row">
                                     <td class="title">Username</td>
                                     <td class="content">
-                                        <input type="text" name="username" value=" ">
+                                        @Html.TextBoxFor(model=>@Model.username, new { @class="form-control", @autofocus="autofocus", @placeholder="Your Email"})
+										@Html.ValidationMessageFor(model => @Model.username, string.Empty, new { @class = "text-danger" } )
                                     </td>
                                 </tr>
                                 <tr class="row">
                                     <td class="title">Website</td>
                                     <td class="content">
-                                        <input type="text" name="website" value=" ">
+                                        @Html.TextBoxFor(model=>@Model.website, new { @class="form-control", @autofocus="autofocus", @placeholder="Your Email"})
                                     </td>
                                 </tr>
                                 <tr class="row">
                                     <td class="title">Biography</td>
                                     <td class="content">
-                                        <input type="text" name="biography" value=" ">
+                                       @Html.TextBoxFor(model=>@Model.biography, new { @class="form-control", @autofocus="autofocus", @placeholder="Your Email"})
                                     </td>
                                 </tr>
                                 <tr class="row">
                                     <td class="title">Email</td>
                                     <td class="content">
-                                        <input disabled type="text" name="email-disable" value=" ">
-                                        <input type="hidden" name="email" value=" ">
+                                        @Html.TextBoxFor(model=>@Model.email, new { @class="form-control", @autofocus="autofocus", @placeholder="Your Email"})
                                     </td>
                                 </tr>
                                 <tr class="row">
                                     <td class="title">Phone number</td>
                                     <td class="content">
-                                        <input type="text" name="phone" value=" ">
+									@Html.TextBoxFor(model=>@Model.phone_number, new { @class="form-control", @autofocus="autofocus", @placeholder="Your Email"})
+									@Html.ValidationMessageFor(model => @Model.phone_number, string.Empty, new { @class = "text-danger" } )
                                     </td>
                                 </tr>
                                 <tr class="row">
                                     <td class="title">Gender</td>
                                     <!--Gender is 0 or 1 so will check to display checked-->
                                     <td class=" center">
-
                                             <input type="radio" name="gender" value="Male" checked> Male
                                             <input type="radio" name="gender" value="Female" style="margin-left: 20px;"> Female
-
-
                                     </td>
                                 </tr>
                                 <tr class="row">
@@ -80,7 +83,7 @@
                                     <td class=" center"><button class="submit" type="submit" name="submit-update">Update</button></td>
                                 </tr>
                             </table>
-                        </form>
+                        }
                     </div>
                 </div>
 				</div>

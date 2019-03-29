@@ -1,4 +1,4 @@
-﻿
+﻿@model FaceGram.Models.ProfileModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -62,11 +62,11 @@
                     <div class="right-profile">
                         <div class="row-0">
                             <div class="profule-username">
-                                Username
+                                @Model.UserProfileModel.username
                             </div>
                             <div class="setting-logout">
-                                <a class="btn1" href="../user/user_profile">Setting</a>
-                                <a class="btn2" href="../logout">Log out</a>
+                                <a href="@Url.Action("Index","EditProfile")" class="btn1" href="../user/user_profile">Setting</a>
+                                <a href="@Url.Action("Logout","Logout")" class="btn2" href="../logout">Log out</a>
                             </div>
                             <div class="clear">
 
@@ -75,13 +75,13 @@
                         </div>
                         <div class="row-1">
                             <div class="numberPost">
-                               Posts
+                               @Model.NumberPostUser Posts
                             </div>
                             <div class="numberUserFollow">
-                                Followwer
+                                @Model.NumberUserFollow Followwer
                             </div>
                             <div class="numberFollow">
-                                Following
+                                @Model.NumberRelationship Following
                             </div>
                             <div class="clear">
 
@@ -89,18 +89,18 @@
                         </div>
 
                         <div class="row-2">
-                            FullName
+                            @Model.UserProfileModel.fullname
                         </div>
 
                         <div class="row-3">
                             <div class="profile-email">
-                                <i class="fas fa-envelope"></i> You can add your Email
+                                <i class="fas fa-envelope"></i> @Model.UserProfileModel.email
                             </div>
                             <div class="profile-website">
-                                <i class="fas fa-file-contract"></i> You can add your Website
+                                <i class="fas fa-file-contract"></i> @Model.UserProfileModel.website
                             </div>
                             <div class="profilw-biography">
-                                <i class="fas fa-address-book"></i> You can add your Biography
+                                <i class="fas fa-address-book"></i> @Model.UserProfileModel.biography
                             </div>
                         </div>
 
@@ -114,32 +114,15 @@
 
 
         </div>
-		                    <div class="row"> 
-  <div class="column col-md-4 col-lg-4">
-    <img class="img-responsive" src="https://i.pinimg.com/originals/4e/37/68/4e3768350e3225a15ea3c720a5c4259c.jpg">
-    <img class="img-responsive" src="https://hinhanhdephd.com/wp-content/uploads/2016/01/tai-hinh-girl-xinh-lam-avatar-de-thuong-nhat-22.jpg">
-    <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy7IRtxmI8h-mpK2yBOVSg5Brs2p0ipH1nE-PIVRvP0C8BOpI_">
-    <img class="img-responsive" src="http://sohanews.sohacdn.com/2017/photo-3-1509975195502.jpg">
-    <img class="img-responsive" src="https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-9/52974584_2315386772031436_1596341109431205888_n.jpg?_nc_cat=111&_nc_oc=AQlGYBAs6BUmaD6rvEPL4FZH4wWQOIcko7iG93vLVJlKd3TXBaS2BUUKEzltuuvQNq4z0qGP6sr2J5TxJHX4436Q&_nc_ht=scontent.fhan5-3.fna&oh=ab294c051779e3b8e01fcf30293a330d&oe=5D504E12">
-    <img class="img-responsive" src="https://i.a4vn.com/2018/9/14/anh-gai-xinh-trong-bo-ao-ngu-sexy-nghet-tho-ab3368.jpg">
-  </div>
-   <div class="column col-md-4 col-lg-4">
-	<img class="img-responsive" src="https://i.a4vn.com/2018/9/14/anh-gai-xinh-trong-bo-ao-ngu-sexy-nghet-tho-ab3368.jpg">
-    <img class="img-responsive" src="https://i.pinimg.com/originals/4e/37/68/4e3768350e3225a15ea3c720a5c4259c.jpg">
-	<img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU5_lLLT-Bf4DE0NaiTYrXYNaG6SfjaaJl3rRnH4rF9PJqW2UZ">
-    <img class="img-responsive" src="https://hinhanhdephd.com/wp-content/uploads/2016/01/tai-hinh-girl-xinh-lam-avatar-de-thuong-nhat-22.jpg">
-    <img class="img-responsive" src="http://sohanews.sohacdn.com/2017/photo-3-1509975195502.jpg">
-    <img class="img-responsive" src="https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-9/52974584_2315386772031436_1596341109431205888_n.jpg?_nc_cat=111&_nc_oc=AQlGYBAs6BUmaD6rvEPL4FZH4wWQOIcko7iG93vLVJlKd3TXBaS2BUUKEzltuuvQNq4z0qGP6sr2J5TxJHX4436Q&_nc_ht=scontent.fhan5-3.fna&oh=ab294c051779e3b8e01fcf30293a330d&oe=5D504E12">
-    
-  </div>
-   <div class="column col-md-4 col-lg-4">
-	<img class="img-responsive" src="https://i.a4vn.com/2018/9/14/anh-gai-xinh-trong-bo-ao-ngu-sexy-nghet-tho-ab3368.jpg">
-    <img class="img-responsive" src="https://i.pinimg.com/originals/4e/37/68/4e3768350e3225a15ea3c720a5c4259c.jpg">
-    <img class="img-responsive" src="https://hinhanhdephd.com/wp-content/uploads/2016/01/tai-hinh-girl-xinh-lam-avatar-de-thuong-nhat-22.jpg">
-    <img class="img-responsive" src="http://sohanews.sohacdn.com/2017/photo-3-1509975195502.jpg">
-    <img class="img-responsive" src="https://scontent.fhan5-3.fna.fbcdn.net/v/t1.0-9/52974584_2315386772031436_1596341109431205888_n.jpg?_nc_cat=111&_nc_oc=AQlGYBAs6BUmaD6rvEPL4FZH4wWQOIcko7iG93vLVJlKd3TXBaS2BUUKEzltuuvQNq4z0qGP6sr2J5TxJHX4436Q&_nc_ht=scontent.fhan5-3.fna&oh=ab294c051779e3b8e01fcf30293a330d&oe=5D504E12">
-    <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy7IRtxmI8h-mpK2yBOVSg5Brs2p0ipH1nE-PIVRvP0C8BOpI_">
-  </div>
 
-</div>
+		 <div class="row"> 
+		@foreach(var postProfileModel in Model.GetcurrentPost) {
+			<div class="column col-md-4 col-lg-4">
+				<img class="img-responsive" src="@postProfileModel.image">
+			  </div>
+		}
+
+		</div>
+							
+
        

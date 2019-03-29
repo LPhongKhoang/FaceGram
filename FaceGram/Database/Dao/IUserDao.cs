@@ -1,4 +1,5 @@
 ﻿using FaceGram.Database.EF;
+using FaceGram.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,7 @@ namespace FaceGram.Database.Dao
         List<User> getListUser();
 
         List<User> getUserExcept(string id);
+
+        void editUserProfile(UserProfileModel userProfileModel, string uid);
     }
 }

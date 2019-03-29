@@ -1,4 +1,5 @@
-﻿using FaceGram.Models;
+﻿using FaceGram.Common;
+using FaceGram.Models;
 using FaceGram.Service;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,19 @@ namespace FaceGram.Controllers
 {
     public class HomeController : BaseController
     {
-        ITestService testService;
+        INewFeedService newFeedService;
 
-        public HomeController(ITestService testService)
+        public HomeController(INewFeedService newFeedService)
         {
-            this.testService = testService;
+            this.newFeedService = newFeedService;
         }
 
         public ActionResult Index()
         {
-            NewFeedModel model = new NewFeedModel();
-            model.Message = testService.sayHello() + ": " + testService.GetHashCode();
+            LoginedUser loginedUser = getUserInSession();
+
+            NewFeedModel model = newFeedService.getNewFeedModel(loginedUser.Id);
+
             return View(model);
         }
 

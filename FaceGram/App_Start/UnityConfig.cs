@@ -34,6 +34,10 @@ namespace FaceGram
             container.RegisterSingleton<IEditProfileService, EditProfileService>();
             container.RegisterSingleton<ILogoutService, LogoutService>();
             container.RegisterSingleton<IAdminService, AdminService>();
+            container.RegisterSingleton<ICommentDao, CommentDao>();
+            container.RegisterSingleton<IFavoriteDao, FavoriteDao>();
+            container.RegisterSingleton<INewFeedService, NewFeedService>();
+            container.RegisterSingleton<IPostInteractService, PostInteractService>();
         }
     }
 }

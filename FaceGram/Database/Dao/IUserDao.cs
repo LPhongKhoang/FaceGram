@@ -27,5 +27,6 @@ namespace FaceGram.Database.Dao
         List<User> getUserExcept(string id);
 
         void editUserProfile(UserProfileModel userProfileModel, string uid);
+        List<User> getAllFriends(string id);
     }
 }

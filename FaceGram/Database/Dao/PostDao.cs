@@ -30,5 +30,19 @@ namespace FaceGram.Database.Dao
         }
 
         
+        public Post getLatestPostOfUser(string uId)
+        {
+            var latestPost = (from post in dbContext.Posts               
+                        where post.uid == uId
+                        orderby post.time descending
+                        select new
+                        {
+                            PostId = post.id,
+                            PostContent = post.content,
+                            PostImage = post.image,
+                            PostTime = post.time
+                        }).FirstOrDefault();
+            return new Post() { id = latestPost.PostId, image = latestPost.PostImage, content = latestPost.PostContent, time = latestPost.PostTime };
+        }
     }
 }

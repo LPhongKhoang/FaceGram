@@ -26,5 +26,10 @@ namespace FaceGram.Controllers
         {
             return (LoginedUser) Session[CommonConstant.USER_SESSION];
         }
+
+        protected string getUserIdInSession()
+        {
+            return getUserInSession().Id;
+        }
     }
 }

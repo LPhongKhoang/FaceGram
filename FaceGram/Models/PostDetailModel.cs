@@ -5,10 +5,8 @@ using System.Web;
 
 namespace FaceGram.Models
 {
-    public class NewFeedModel
+    public class PostDetailModel : PostModel
     {
-        public List<PostModel> PostModelList { get; set; }
-
-        
+        public List<CommentModel> allCommentModels { get; set; }
     }
 }

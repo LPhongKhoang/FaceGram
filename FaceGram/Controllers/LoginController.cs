@@ -41,7 +41,8 @@ namespace FaceGram.Controllers
                     {
                         Id = user.id,
                         UserName = user.username,
-                        UserFullName = user.fullname
+                        UserFullName = user.fullname,
+                        Avatar = user.avatar
                     };
 
                     Session.Add(CommonConstant.USER_SESSION, loginedUser);

@@ -117,5 +117,20 @@ namespace FaceGram.Database.Dao
 
             dbContext.SaveChanges();
         }
+        public List<User> getAllFriends(string id)
+        {
+            var friends = (from user in dbContext.Users
+                          join relation in dbContext.Relationships
+                          on user.id equals relation.fId
+                          where relation.uId == id
+                          select new
+                          {
+                              UId = user.id,
+                              Username = user.username,
+                              Avatar = user.avatar
+
+                          }).ToList().Select(x => new User { id = x.UId, username = x.Username, avatar = x.Avatar});
+            return friends.ToList();
+        }
     }
 }

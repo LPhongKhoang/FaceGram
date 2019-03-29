@@ -14,18 +14,30 @@
     padding: 8px 12px;
 }
 
+.nickname {
+    font-weight: bold;
+    color: #000;
+}
+a.nickname:hover{
+    text-decoration: none;
+}
+
 /*Detail section in Post */
 .post-basic .post-header {
-    margin-bottom: 25px;
+    margin-bottom: 45px;
     clear: both;
 }
 .post-basic .post-header .time-ago{
     padding-top: 5px;
 }
 
+.post-basic .post-header .avatar-name img{
+    width: 40px;
+    height: 40px;
+}
+
 .post-basic .post-header .avatar-name .nickname {
     margin-left: 10px;
-    font-weight: bold;
 }
 
 
@@ -42,21 +54,41 @@
     margin-bottom: 10px;
 }
 
+.post-basic .post-interact .post-like{
+    margin-bottom: 20px;
+}
+.post-basic .post-interact .post-comments .comment{
+    margin-bottom: 15px;
+
+}
+.post-basic .post-interact .post-comments .comment img{
+    width: 30px;
+    height: 30px;
+}
+.post-basic .post-interact .post-comments .comment .text-comment {
+    margin-left: 10px;
+}
 
 .post-basic .add-comment {
     border-top: 1px solid #e8e8e8;
 }
 
-.post-basic .add-comment #addComment {
+.post-basic .add-comment .addComment {
     padding: 15px 12px;
     width: 100%;
     border: none;
 }
-.post-basic .add-comment #addComment:focus{
+.post-basic .add-comment .addComment:focus{
     outline: none;
 }
 
-.post-basic .add-comment .input-group-addon{
+.post-basic .add-comment .input-group-addon {
     border: none;
     background-color: #fff;
+    color: #b7bac5;
 }
+
+.post-basic .add-comment .btnAddComment:hover{
+    cursor: context-menu;
+}
+

@@ -8,83 +8,69 @@
 }
 
 @section ScriptPage{
-    <script src="~/Assets/"></script>    
+    <script src="~/Assets/Js/interactPostScript.js"></script>
 }
 
 <div class="home-content row">
     <div class="newfeeds col-md-8 col-lg-8">
-        @*for post in posts*@
-        <div class="post-basic">
-            <div class="post-header post-align-side">
-                <div class="avatar-name pull-left">
-                    <img class="img-responsive img-circle" width="30" src="https://instagram.fhan2-2.fna.fbcdn.net/vp/732ce1472a8aed8adc14420927dd893b/5D2F8506/t51.2885-19/s150x150/35261194_1872956879409513_8950825051611987968_n.jpg?_nc_ht=instagram.fhan2-2.fna.fbcdn.net" />
-                    <span class="nickname">sontungmtp</span>
-                </div>
-                <div class="time-ago pull-right">
-                    <span>2 hours ago</span>
-                </div>
-            </div>
-            <div class="post-content post-align-side">
-                <p>Are you ready for the next song?</p>
 
-            </div>
-            <div class="post-image">
-                <img class="img-responsive" src="https://media1.nguoiduatin.vn/media/nguyen-minh-anh/2019/01/22/ndt34.jpg" />
-            </div>
-            <div class="post-interact post-align-side">
-                <div class="post-like">
-                    <img class="img-responsive" width="25" src="~/Assets/Images/web_icon/favorite-liked.PNG" />
-                    <span>175,833 likes</span>
-                </div>
-                <div class="post-comments" id="post-comments">
+        @if (Model.PostModelList.Count >= 1)
+        {
 
-                </div>
-            </div>
-            <div class="add-comment">
-                <div class="input-group">
-                    <input id="addComment" type="text" placeholder="Write a comment" aria-describedby="basic-addon2">
-                    <span class="input-group-addon" id="btnAddComment">Post</span>
-                </div>
+            foreach (var postModel in Model.PostModelList)
+            {
+                <div class="post-basic">
+                    <div class="post-header post-align-side">
+                        <div class="avatar-name pull-left">
+                            <img class="img-responsive img-circle" src="@postModel.UserOfPost.Avatar" />
+                            <a href="#" class="nickname">@postModel.UserOfPost.Username</a>
+                        </div>
+                        <div class="time-ago pull-right">
+                            <span>@postModel.TimeAgo</span>
+                        </div>
+                    </div>
+                    <div class="post-content post-align-side">
+                        <p>@postModel.PostContent</p>
 
-            </div>
-        </div>
+                    </div>
+                    <div class="post-image">
+                        <img class="img-responsive" src="@postModel.PostImage" />
+                    </div>
+                    <div class="post-interact post-align-side">
+                        <div class="post-like">
+                            <img class="img-responsive icon-like" width="25" data-postid="@postModel.PostId"
+                                 src='~/Assets/Images/web_icon/@(postModel.IsLikeByLoginedUser? "favorite-liked.PNG" : "favorite.PNG")' />
+                            <span>@postModel.FormatLikes</span>
+                        </div>
+                        <div class="post-comments" id='post-comments-@postModel.PostId'>
+                            @foreach (var commentModel in postModel.Top3CommentModels)
+                            {
+                                <div class="comment">
+                                    <img class="img-responsive img-circle" src="@commentModel.UserOfComment.Avatar" />
+                                    <a href="#" class="nickname">@commentModel.UserOfComment.Username</a>
+                                    <span class="text-comment">@commentModel.Content</span>
+                                </div>
+                            }
 
 
-        <div class="post-basic">
-            <div class="post-header post-align-side">
-                <div class="avatar-name pull-left">
-                    <img class="img-responsive img-circle" width="30" src="https://instagram.fhan2-2.fna.fbcdn.net/vp/732ce1472a8aed8adc14420927dd893b/5D2F8506/t51.2885-19/s150x150/35261194_1872956879409513_8950825051611987968_n.jpg?_nc_ht=instagram.fhan2-2.fna.fbcdn.net" />
-                    <span class="nickname">sontungmtp</span>
-                </div>
-                <div class="time-ago pull-right">
-                    <span>2 hours ago</span>
-                </div>
-            </div>
-            <div class="post-content post-align-side">
-                <p>Are you ready for the next song?</p>
+                        </div>
+                    </div>
+                    <div class="add-comment">
+                        <div class="input-group">
+                            <input class="addComment" type="text" placeholder="Write a comment" data-postid="@postModel.PostId" aria-describedby="basic-addon2">
+                            <span class="input-group-addon btnAddComment">Post</span>
+                        </div>
 
-            </div>
-            <div class="post-image">
-                <img class="img-responsive" src="http://channel.mediacdn.vn/thumb_w/640/2019/3/26/photo-1-155357092784325668840.jpg" />
-            </div>
-            <div class="post-interact post-align-side">
-                <div class="post-like">
-                    <img class="img-responsive" width="25" src="~/Assets/Images/web_icon/favorite-liked.PNG" />
-                    <span>175,833 likes</span>
+                    </div>
                 </div>
-                <div class="post-comments" id="post-comments">
+            }
 
-                </div>
-            </div>
-            <div class="add-comment">
-                <div class="input-group">
-                    <input id="addComment" type="text" placeholder="Write a comment" aria-describedby="basic-addon2">
-                    <span class="input-group-addon" id="btnAddComment">Post</span>
-                </div>
+        }
 
-            </div>
-        </div>
-        @*end for*@
+
+
+
+
     </div>
     <div class="follower col-md-4 col-lg-4">
 

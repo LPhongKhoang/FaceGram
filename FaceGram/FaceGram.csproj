@@ -237,6 +237,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Common\CommonConstant.cs" />
+    <Compile Include="Common\DateTimeUtils.cs" />
+    <Compile Include="Common\FormatDataToShow.cs" />
     <Compile Include="Common\LoginedUser.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -245,6 +247,7 @@
     <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PostInteractController.cs" />
     <Compile Include="Database\Dao\CommentDao.cs" />
     <Compile Include="Database\Dao\FavoriteDao.cs" />
     <Compile Include="Database\Dao\ICommentDao.cs" />
@@ -266,22 +269,30 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminModel.cs" />
-    <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\NewFeedModel.cs" />
     <Compile Include="Models\PostProfileModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AdminService.cs" />
     <Compile Include="Service\EditProfileService.cs" />
     <Compile Include="Service\IAdminService.cs" />
     <Compile Include="Service\IEditProfileService.cs" />
     <Compile Include="Service\ILogoutService.cs" />
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\NewFeedModel.cs" />
+    <Compile Include="Models\PostDetailModel.cs" />
+    <Compile Include="Models\PostModel.cs" />
+    <Compile Include="Models\UserAvatarModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\INewFeedService.cs" />
+    <Compile Include="Service\IPostInteractService.cs" />
     <Compile Include="Service\IProfileService.cs" />
     <Compile Include="Service\IRelationshipService.cs" />
     <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\ITestService.cs" />
     <Compile Include="Service\LogoutService.cs" />
+    <Compile Include="Service\NewFeedService.cs" />
+    <Compile Include="Service\PostInteractService.cs" />
     <Compile Include="Service\ProfileService.cs" />
     <Compile Include="Service\RelationshipService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -292,6 +303,7 @@
     <Content Include="Assets\Css\editProfile.css" />
     <Content Include="Assets\Css\loginStyle.css" />
     <Content Include="Assets\Css\profileStyle.css" />
+    <Content Include="Assets\Js\interactPostScript.js" />
     <Content Include="Assets\Js\uploadPostScript.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -309,6 +321,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -336,6 +350,7 @@
     <Folder Include="Assets\Images\web_icon\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Logout\" />
+    <Folder Include="Views\PostInteract\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

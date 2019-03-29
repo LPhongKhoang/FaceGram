@@ -1,0 +1,213 @@
+﻿
+@{
+    Layout = null;
+}
+@model FaceGram.Models.AdminModel
+<!DOCTYPE html>
+
+<html>
+  <style>
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;        /*Div can't run*/
+                z-index: 1;
+                top:0;                  /*Fix to corner*/
+                left: 0;
+                background-color: #050228;
+                overflow: hidden;       /*Hide div overflow*/
+                transition: 1s;         /*Time to display width 0 - 250*/
+                padding-top: 50px;
+            }
+
+            .sidenav a {
+                padding: 6px 6px 6px 20px;
+                text-decoration: none;   /*Remove underline*/
+                display: block;          /*Display independence with tag a above*/
+            }
+
+            .sidenav .closebtn {
+                position: absolute;      /*Button math position with slidenav*/
+                margin-left: 150px;
+                top: 10px;
+            }
+
+            #main {
+                transition: 1s;
+            }
+            .btn-logout {
+                margin-top: 5px;
+                width: 10%;
+                height: 100%;
+                float: right;
+            }
+            .btn-admin {
+                margin: 5px 10px 10px 10px;
+            }
+            .openNav {
+                text-decoration: none;
+            }
+            .logout-btn {
+                float: right;
+                width: 52px;
+                background-color: red;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                padding: 10px 15px;   
+            }
+            .logout-btn:hover{
+                color: green;
+            }
+            .table-display{
+                border: solid;
+            }
+            .closebtn {
+                color: white;
+            }
+            .a1 {
+                color: yellowgreen;
+            }
+            .a1:hover{
+                color: white;
+            }
+            .closebtn:hover {
+                color:chocolate;
+            }
+            .AddUser {
+                display: inline-block;
+                font-size: 15px;
+                outline: none;
+                color: black;
+                background-color: coral;
+                border-radius: 2px;
+                border-color: silver;
+            }
+            .AddUser:hover {
+                background-color: green;
+            }
+            .aa {
+                width: 100px;
+                background-color: #3b5998;
+                color: white;
+                text-decoration: none;
+                border-radius: 2px;
+                margin-left: 20px;
+            }
+            .aa:hover { 
+                background-color: goldenrod;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <!--Display Dialog-->
+            <dialog id="myDialog">
+                <form action="../login" method="POST">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="emailRegister" placeholder="Email" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="fullname" placeholder="Full name" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" placeholder="Username" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="passwordRegister" placeholder="Password" />
+                    </div>
+                    <br>
+                    <p style="text-align: center">
+                        <button type="button" name="btnClose" onclick="closeDialog()">Close</button>
+                        <input type="submit" name="btnRegister" class="btn-register" align="center" value="Register"></input>
+                    </p>
+                </form>
+            </dialog>
+        <div id="abc">
+            <nav id="main">
+                <div>
+                    <div>
+                        <!--SeverletController Admin /admin willl be same admin/index.jsp-->
+                        <a href="../administrator?action=logout" class="logout-btn">Log out</a>
+                    </div>
+
+                    <div>
+                        <a href="#" class="openNav" onclick="openNav()">&#10024; Hello Admin</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="mySidenav" class="sidenav">
+                <a href="#" class="closebtn" onclick="closeNav()">&#9785;</a>
+                <a class="a1" href="@Url.Action("User","Admin")">User</a>
+                <a class="a1" href="@Url.Action("Post","Admin")"">Post</a>
+                <a class="a1" href="@Url.Action("Comment","Admin")"">Comment</a>
+                <a class="a1" href="@Url.Action("Relationship","Admin")"">Relationship</a>
+                <a class="a1" href="@Url.Action("Favorite","Admin")"">Favorite</a>
+            </div>
+			
+			@if(Model.linkClick == "user") {
+			<div class="add-user">
+                            <!--Show dialog-->
+                            <button class="AddUser" onclick="showDialog()">Add User</button>
+                        </div>
+                        <br>
+                        <table border = "1" class="table-display" style="width:100%">
+                            <tr>
+                                <th>ID</th>
+                                <th>Full name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Gender</th>
+                                <th>Phone number</th>
+                                <th>Website</th>
+                                <th>Biography</th>
+                                <th>Avatar</th>
+                                <th>Role</th>
+							</tr>
+							<tr>
+								<td><@Model.UserProfileModel.id></td>
+								<td><@Model.UserProfileModel.fullname></td>
+								<td><@Model.UserProfileModel.username></td>
+								<td><@Model.UserProfileModel.email></td>
+								<td><@Model.UserProfileModel.gender></td>
+								<td><@Model.UserProfileModel.phone_number></td>
+								<td><@Model.UserProfileModel.website></td>
+								<td><@Model.UserProfileModel.biography></td>
+								<td><@Model.UserProfileModel.avatar></td>
+							</tr>
+
+						</table>
+			}
+
+
+			 <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "200px";
+                document.getElementById("main").style.marginLeft = "200px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+            }
+
+            var x = document.getElementById("myDialog");
+            function showDialog() {
+                x.show();
+                x.style.zIndex = "10";
+                document.getElementById("abc").style.opacity = 0.1;
+            }
+
+            function closeDialog() {
+                x.close();
+                document.getElementById("abc").style.opacity = 1;
+            }
+        </script>
+	</body>
+</html>

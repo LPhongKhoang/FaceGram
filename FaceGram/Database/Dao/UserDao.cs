@@ -1,5 +1,6 @@
 ﻿using FaceGram.Common;
 using FaceGram.Database.EF;
+using FaceGram.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -101,6 +102,20 @@ namespace FaceGram.Database.Dao
         {
             var listUserExcept = dbContext.Users.Where(x => !x.id.Equals(id));
             return listUserExcept.ToList();
+        }
+
+        // edit user profile
+        public void editUserProfile(UserProfileModel userProfileModel, string uid)
+        {
+            User user = dbContext.Users.Single(c => c.id.Equals(uid));
+
+            user.fullname = userProfileModel.fullname;
+            user.username = userProfileModel.username;
+            user.website = userProfileModel.website;
+            user.biography = userProfileModel.biography;
+            user.phone_number = userProfileModel.phone_number;
+
+            dbContext.SaveChanges();
         }
     }
 }

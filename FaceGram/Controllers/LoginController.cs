@@ -67,9 +67,7 @@ namespace FaceGram.Controllers
                 }        
 
             }
-
             return View("Index");
-
         }
 
     }

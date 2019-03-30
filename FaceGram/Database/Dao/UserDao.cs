@@ -142,5 +142,12 @@ namespace FaceGram.Database.Dao
             }
             return user.role1;
         }
+
+        public void insertRole(Role role)
+        {
+            dbContext.Roles.Add(role);
+
+            dbContext.SaveChanges();
+        }
     }
 }

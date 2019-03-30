@@ -30,5 +30,7 @@ namespace FaceGram.Database.Dao
         List<User> getAllFriends(string id);
 
         string getRole(string userId);
+
+        void insertRole(Role role);
     }
 }

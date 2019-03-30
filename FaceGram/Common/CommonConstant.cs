@@ -13,6 +13,13 @@ namespace FaceGram.Common
         public const string USER_SESSION = "UserSession";
 
         /// <summary>
+        /// Role of user _ string in database
+        /// </summary>
+        public const string ROLE_USER = "user";
+        public const string ROLE_ADMIN = "admin";
+
+
+        /// <summary>
         /// Code for login function
         /// </summary>
         public const char LOGIN_FAIL = '0';

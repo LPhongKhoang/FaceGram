@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace FaceGram.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : BaseUserController
     {
         INewFeedService newFeedService;
 

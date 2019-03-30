@@ -19,5 +19,7 @@ namespace FaceGram.Database.Dao
         /// <param name="id">id of user</param>
         /// <returns></returns>
         Post getLatestPostOfUser(string id);
+
+        List<Post> getAllPost();
     }
 }

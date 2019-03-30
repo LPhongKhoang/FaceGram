@@ -9,8 +9,24 @@ namespace FaceGram.Service
 {
     public interface IAdminService
     {
-        UserProfileModel getUser(string userID);
+        List<UserProfileModel> getAllUser();
 
-        AdminModel getProfileModel(string userID, string linkClicked);
+        string linkClicked { get; set; }
+
+        AdminModel getAdminModel(string linkClicked);
+
+        List<PostProfileModel> getAllPost();
+
+        List<CommentModel> allComment();
+
+        List<FavoriteModel> allFavorite();
+
+        List<RelationshipModel> allRelationship();
+
+        void deleteComment(string id);
+
+        void deleteRelationship(string id);
+
+        void deleteFavorite(string id);
     }
 }

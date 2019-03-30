@@ -29,7 +29,14 @@ namespace FaceGram.Database.Dao
             return listPost;
         }
 
-        
+        public List<Post> getAllPost()
+        {
+            var listPost = dbContext.Posts.ToList();
+
+            return listPost;
+        }
+
+
         public Post getLatestPostOfUser(string uId)
         {
             var latestPost = (from post in dbContext.Posts               

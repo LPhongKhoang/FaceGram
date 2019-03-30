@@ -8,7 +8,7 @@ using FaceGram.Service;
 
 namespace FaceGram.Controllers
 {
-    public class EditProfileController : BaseController
+    public class EditProfileController : BaseUserController
     {
         private IEditProfileService editProfileService;
 

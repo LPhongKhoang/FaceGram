@@ -52,5 +52,18 @@ namespace FaceGram.Database.Dao
                 return false;
             }
         }
+
+        public List<Favorite> getAllFavorite()
+        {
+            return dbContext.Favorites.ToList();
+        }
+
+        public void deleteFavorite(string idFavo)
+        {
+            var deleteFavorite = dbContext.Favorites.SingleOrDefault(x => x.id == idFavo);
+
+            dbContext.Favorites.Remove(deleteFavorite);
+            dbContext.SaveChanges();
+        }
     }
 }

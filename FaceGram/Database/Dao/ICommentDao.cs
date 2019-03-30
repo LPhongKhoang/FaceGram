@@ -13,6 +13,9 @@ namespace FaceGram.Database.Dao
         List<CommentModel> getTop3CommentModels(string postId);
 
         bool insertComment(Comment comment);
-        
+
+        List<Comment> getAllComments();
+
+        void deleteComment(string idComment);
     }
 }

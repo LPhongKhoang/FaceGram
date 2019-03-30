@@ -21,10 +21,17 @@ namespace FaceGram.Service
             return userDao.getByEmail(email);
         }
 
+        public string getRole(string userId)
+        {
+            return userDao.getRole(userId);
+        }
+
         public char verifyAccount(string email, string password)
         {
             return userDao.isExistUser(email, password);
         }
+
+
 
 
     }

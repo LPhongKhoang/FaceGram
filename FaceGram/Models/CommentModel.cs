@@ -12,5 +12,12 @@ namespace FaceGram.Models
         public UserAvatarModel UserOfComment { get; set; }
 
         public string Content { get; set; }
+
+        public string id { get; set; }
+
+        public string uid { get; set; }
+
+        public DateTime? time { get; set; }
+
     }
 }

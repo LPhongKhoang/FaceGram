@@ -132,5 +132,15 @@ namespace FaceGram.Database.Dao
                           }).ToList().Select(x => new User { id = x.UId, username = x.Username, avatar = x.Avatar});
             return friends.ToList();
         }
+
+        public string getRole(string userId)
+        {
+            Role user = dbContext.Roles.Find(userId);
+            if(user == null)
+            {
+                return string.Empty;
+            }
+            return user.role1;
+        }
     }
 }

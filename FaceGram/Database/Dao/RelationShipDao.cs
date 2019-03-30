@@ -28,5 +28,20 @@ namespace FaceGram.Database.Dao
 
             return numberUserFollow;
         }
+
+        public List<Relationship> getAllRelationship()
+        {
+            var listRela = dbContext.Relationships.ToList();
+
+            return listRela;
+        }
+
+        public void deleteRelationshipByID(string idRela)
+        {
+            var deleteRela = dbContext.Relationships.SingleOrDefault(x => x.id == idRela);
+
+            dbContext.Relationships.Remove(deleteRela);
+            dbContext.SaveChanges();
+        }
     }
 }

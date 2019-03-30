@@ -7,7 +7,15 @@ namespace FaceGram.Models
 {
     public class AdminModel
     {
-        public UserProfileModel UserProfileModel { get; set; }
+        public List<UserProfileModel> listUserProfileModel { get; set; }
+
+        public List<PostProfileModel> listPostProfileModel { get; set; }
+
+        public List<CommentModel> listCommentModel { get; set; }
+
+        public List<RelationshipModel> listRelationshipModel { get; set; }
+
+        public List<FavoriteModel> listFavoriteModel { get; set; }
 
         public string linkClick { get; set; }
     }

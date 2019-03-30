@@ -50,5 +50,20 @@ namespace FaceGram.Database.Dao
                 return false;
             }
         }
+
+        public List<Comment> getAllComments()
+        {
+            var listComment = dbContext.Comments.ToList();
+
+            return listComment;
+        }
+
+        public void deleteComment(string idComment)
+        {
+            var deleteComment = dbContext.Comments.SingleOrDefault(x => x.id == idComment);
+
+            dbContext.Comments.Remove(deleteComment);
+            dbContext.SaveChanges();
+        }
     }
 }

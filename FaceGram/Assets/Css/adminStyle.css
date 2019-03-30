@@ -1,0 +1,104 @@
+﻿.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed; /*Div can't run*/
+    z-index: 1;
+    top: 0; /*Fix to corner*/
+    left: 0;
+    background-color: #050228;
+    overflow: hidden; /*Hide div overflow*/
+    transition: 1s; /*Time to display width 0 - 250*/
+    padding-top: 50px;
+}
+
+    .sidenav a {
+        padding: 6px 6px 6px 20px;
+        text-decoration: none; /*Remove underline*/
+        display: block; /*Display independence with tag a above*/
+    }
+
+    .sidenav .closebtn {
+        position: absolute; /*Button math position with slidenav*/
+        margin-left: 150px;
+        top: 10px;
+    }
+
+#main {
+    transition: 1s;
+}
+
+.btn-logout {
+    margin-top: 5px;
+    width: 10%;
+    height: 100%;
+    float: right;
+}
+
+.btn-admin {
+    margin: 5px 10px 10px 10px;
+}
+
+.openNav {
+    text-decoration: none;
+}
+
+.logout-btn {
+    float: right;
+    width: 52px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+    .logout-btn:hover {
+        color: green;
+    }
+
+.table-display {
+    border: solid;
+}
+
+.closebtn {
+    color: white;
+}
+
+.a1 {
+    color: yellowgreen;
+}
+
+    .a1:hover {
+        color: white;
+    }
+
+.closebtn:hover {
+    color: chocolate;
+}
+
+.AddUser {
+    display: inline-block;
+    font-size: 15px;
+    outline: none;
+    color: black;
+    background-color: coral;
+    border-radius: 2px;
+    border-color: silver;
+}
+
+    .AddUser:hover {
+        background-color: green;
+    }
+
+.aa {
+    width: 100px;
+    background-color: #3b5998;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+    margin-left: 20px;
+}
+
+    .aa:hover {
+        background-color: goldenrod;
+    }

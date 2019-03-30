@@ -19,7 +19,7 @@
             <div class="col-md-12 login-form-1">
                 <h3>FaceGram</h3>
 
-                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                @using (Html.BeginForm("Index", "Admin", FormMethod.Post))
                 {
                     @Html.ValidationSummary(true, string.Empty, new { @class="text-danger"})
                     <div class="form-group">

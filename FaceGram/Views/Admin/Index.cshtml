@@ -3,105 +3,134 @@
     Layout = null;
 }
 @model FaceGram.Models.AdminModel
-<!DOCTYPE html>
+@section StylePage {
+	 <link rel="stylesheet" href="~/Assets/Css/adminStyle.css" />
+}
+<style>
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed; /*Div can't run*/
+    z-index: 1;
+    top: 0; /*Fix to corner*/
+    left: 0;
+    background-color: #050228;
+    overflow: hidden; /*Hide div overflow*/
+    transition: 1s; /*Time to display width 0 - 250*/
+    padding-top: 50px;
+}
 
-<html>
-  <style>
-            .sidenav {
-                height: 100%;
-                width: 0;
-                position: fixed;        /*Div can't run*/
-                z-index: 1;
-                top:0;                  /*Fix to corner*/
-                left: 0;
-                background-color: #050228;
-                overflow: hidden;       /*Hide div overflow*/
-                transition: 1s;         /*Time to display width 0 - 250*/
-                padding-top: 50px;
-            }
+    .sidenav a {
+        padding: 6px 6px 6px 20px;
+        text-decoration: none; /*Remove underline*/
+        display: block; /*Display independence with tag a above*/
+    }
 
-            .sidenav a {
-                padding: 6px 6px 6px 20px;
-                text-decoration: none;   /*Remove underline*/
-                display: block;          /*Display independence with tag a above*/
-            }
+    .sidenav .closebtn {
+        position: absolute; /*Button math position with slidenav*/
+        margin-left: 150px;
+        top: 10px;
+    }
 
-            .sidenav .closebtn {
-                position: absolute;      /*Button math position with slidenav*/
-                margin-left: 150px;
-                top: 10px;
-            }
+#main {
+    transition: 1s;
+}
 
-            #main {
-                transition: 1s;
-            }
-            .btn-logout {
-                margin-top: 5px;
-                width: 10%;
-                height: 100%;
-                float: right;
-            }
-            .btn-admin {
-                margin: 5px 10px 10px 10px;
-            }
-            .openNav {
-                text-decoration: none;
-            }
-            .logout-btn {
-                float: right;
-                width: 52px;
-                background-color: red;
-                color: white;
-                text-decoration: none;
-                border-radius: 5px;
-                padding: 10px 15px;   
-            }
-            .logout-btn:hover{
-                color: green;
-            }
-            .table-display{
-                border: solid;
-            }
-            .closebtn {
-                color: white;
-            }
-            .a1 {
-                color: yellowgreen;
-            }
-            .a1:hover{
-                color: white;
-            }
-            .closebtn:hover {
-                color:chocolate;
-            }
-            .AddUser {
-                display: inline-block;
-                font-size: 15px;
-                outline: none;
-                color: black;
-                background-color: coral;
-                border-radius: 2px;
-                border-color: silver;
-            }
-            .AddUser:hover {
-                background-color: green;
-            }
-            .aa {
-                width: 100px;
-                background-color: #3b5998;
-                color: white;
-                text-decoration: none;
-                border-radius: 2px;
-                margin-left: 20px;
-            }
-            .aa:hover { 
-                background-color: goldenrod;
-            }
-        </style>
-    </head>
+.btn-logout {
+    margin-top: 5px;
+    width: 10%;
+    height: 100%;
+    float: right;
+}
+
+.btn-admin {
+    margin: 5px 10px 10px 10px;
+}
+
+.openNav {
+    text-decoration: none;
+}
+
+.logout-btn {
+    float: right;
+    width: 52px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+    .logout-btn:hover {
+        color: green;
+    }
+
+.table-display {
+    border: solid;
+}
+
+.closebtn {
+    color: white;
+}
+
+.a1 {
+    color: yellowgreen;
+}
+
+    .a1:hover {
+        color: white;
+    }
+
+.closebtn:hover {
+    color: chocolate;
+}
+
+.AddUser {
+    display: inline-block;
+    font-size: 15px;
+    outline: none;
+    color: black;
+    background-color: coral;
+    border-radius: 2px;
+    border-color: silver;
+}
+
+    .AddUser:hover {
+        background-color: green;
+    }
+
+.aa {
+	display: inline-block;
+	height: 100%;
+    width: 130px;
+    background-color: #3b5998;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+	margin: auto;
+	text-align: center;
+}
 
 
-    <body>
+    .aa:hover {
+	
+        background-color: goldenrod;
+    }
+	.table-display {
+		text-align: left;
+		margin-top: 50px;
+	}
+
+th .column-btn {
+	display: block;
+	width: 30px;
+}
+td {
+	padding: 5px;
+}
+
+
+</style>
         <!--Display Dialog-->
             <dialog id="myDialog">
                 <form action="../login" method="POST">
@@ -132,7 +161,7 @@
                 <div>
                     <div>
                         <!--SeverletController Admin /admin willl be same admin/index.jsp-->
-                        <a href="../administrator?action=logout" class="logout-btn">Log out</a>
+                         <a href="@Url.Action("Logout","Logout")" class="logout-btn" href="../logout">Log out</a>
                     </div>
 
                     <div>
@@ -143,49 +172,155 @@
 
             <div id="mySidenav" class="sidenav">
                 <a href="#" class="closebtn" onclick="closeNav()">&#9785;</a>
-                <a class="a1" href="@Url.Action("User","Admin")">User</a>
-                <a class="a1" href="@Url.Action("Post","Admin")"">Post</a>
-                <a class="a1" href="@Url.Action("Comment","Admin")"">Comment</a>
-                <a class="a1" href="@Url.Action("Relationship","Admin")"">Relationship</a>
-                <a class="a1" href="@Url.Action("Favorite","Admin")"">Favorite</a>
+                <a class="a1" href="@Url.Action("Index","Admin", new { linkClick = "user" })">User</a>
+                <a class="a1" href="@Url.Action("Index","Admin", new { linkClick = "post" })">Post</a>
+                <a class="a1" href="@Url.Action("Index","Admin", new { linkClick = "comment" })">Comment</a>
+                <a class="a1" href="@Url.Action("Index","Admin", new { linkClick = "relationship" })">Relationship</a>
+                <a class="a1" href="@Url.Action("Index","Admin", new { linkClick = "favorite" })">Favorite</a>
             </div>
 			
-			@if(Model.linkClick == "user") {
-			<div class="add-user">
-                            <!--Show dialog-->
-                            <button class="AddUser" onclick="showDialog()">Add User</button>
-                        </div>
-                        <br>
+			@if (Model.listUserProfileModel.Count >= 0 && Model.linkClick == "user") {
                         <table border = "1" class="table-display" style="width:100%">
                             <tr>
                                 <th>ID</th>
                                 <th>Full name</th>
-                                <th>Username</th>
+                                <th>User name</th>
                                 <th>Email</th>
-                                <th>Password</th>
                                 <th>Gender</th>
                                 <th>Phone number</th>
                                 <th>Website</th>
                                 <th>Biography</th>
-                                <th>Avatar</th>
-                                <th>Role</th>
+
 							</tr>
+							@foreach(var userProfileModle in Model.listUserProfileModel) {
 							<tr>
-								<td><@Model.UserProfileModel.id></td>
-								<td><@Model.UserProfileModel.fullname></td>
-								<td><@Model.UserProfileModel.username></td>
-								<td><@Model.UserProfileModel.email></td>
-								<td><@Model.UserProfileModel.gender></td>
-								<td><@Model.UserProfileModel.phone_number></td>
-								<td><@Model.UserProfileModel.website></td>
-								<td><@Model.UserProfileModel.biography></td>
-								<td><@Model.UserProfileModel.avatar></td>
+								<td>@userProfileModle.id</td>
+								<td>@userProfileModle.fullname</td>
+								<td>@userProfileModle.username</td>
+								<td>@userProfileModle.email</td>
+								<td>@userProfileModle.gender</td>
+								<td>@userProfileModle.phone_number</td>
+								<td>@userProfileModle.website</td>
+								<td>@userProfileModle.biography</td>
 							</tr>
+							}
+							
 
 						</table>
 			}
 
+			@if (Model.listPostProfileModel.Count >= 0 && Model.linkClick == "post") {
+                        <table border = "1" class="table-display">
+					<col width="100">
+					<col width="100">
+					<col width="1200">
+					<col width="200">
+					<col width="100">
 
+                            <tr>
+                                <th>ID</th>
+                                <th>User ID</th>
+                                <th>Content</th>
+                                <th>Time</th>
+                                <th>Image</th>
+							</tr>
+							@foreach(var postProfileModel in Model.listPostProfileModel) {
+							<tr>
+								<td>@postProfileModel.id</td>
+								<td>@postProfileModel.uid</td>
+								<td>@postProfileModel.content</td>
+								<td>@postProfileModel.time</td>
+								<td>@postProfileModel.image</td>
+							</tr>
+							}
+						</table>
+			}
+
+			@if (Model.listCommentModel.Count >= 0 && Model.linkClick == "comment") {
+                        <table border = "1" class="table-display" style="width:100%">
+						<col width="300">
+						<col width="300">
+						<col width="300">
+						<col width="300">
+						<col width="300">
+                            <tr>
+                                <th>ID</th>
+                                <th>User ID</th>
+                                <th>Post ID</th>
+                                <th>Content</th>
+                                <th>Time</th>
+                                <th class="column-btn"></th>
+                            </tr>
+							@foreach(var commentModel in Model.listCommentModel) {
+							<tr>
+								<td>@commentModel.id</td>
+								<td>@commentModel.uid</td>
+								<td>@commentModel.PostId</td>
+								<td>@commentModel.Content</td>
+								<td>@commentModel.time</td>
+								<td>
+                                    <a class="aa" href="@Url.Action("Index","Admin", new {getID = @commentModel.id, clickButton = "deleteComment", linkClick = "comment" })">Delete Comment</a>
+                                </td>
+							</tr>
+							}
+						</table>
+			}
+
+			@if (Model.listRelationshipModel.Count >= 0 && Model.linkClick == "relationship") {
+                        <table border = "1" class="table-display" style="width:100%">
+						<col width="400">
+						<col width="400">
+						<col width="400">
+						<col width="400">
+						<col width="50">
+
+                            <tr>
+                                <th>ID</th>
+                                <th>User ID</th>
+                                <th>Friend ID</th>
+                                <th></th>
+                            </tr>
+							@foreach(var relationshipModel in Model.listRelationshipModel) {
+							<tr>
+								<td>@relationshipModel.id</td>
+								<td>@relationshipModel.uId</td>
+								<td>@relationshipModel.fId</td>
+
+								<td>
+                                    <a class="aa" href="@Url.Action("Index","Admin", new {getID = @relationshipModel.id, clickButton = "deleteRelationship", linkClick = "relationship" })">Delete Relationship</a>
+                                </td>
+							</tr>
+							}
+						</table>
+			}
+
+			@if (Model.listFavoriteModel.Count >= 0 && Model.linkClick == "favorite") {
+                        <table border = "1" class="table-display" style="width:100%">
+						<col width="400">
+						<col width="400">
+						<col width="400">
+						<col width="50">
+                            <tr>
+                                <th>ID</th>
+                                <th>User ID</th>
+                                <th>Post ID</th>
+                                <th></th>
+                            </tr>
+							@foreach(var favoriteModel in Model.listFavoriteModel) {
+							<tr>
+								<td>@favoriteModel.id</td>
+								<td>@favoriteModel.uId</td>
+								<td>@favoriteModel.pId</td>
+
+								<td>
+                                    <a class="aa" href="@Url.Action("Index","Admin", new {getID = @favoriteModel.id, clickButton = "deleteFavorite", linkClick = "favorite" })">Delete Favorite</a>
+                                </td>
+							</tr>
+							}
+						</table>
+			}
+
+			                      
 			 <script>
             function openNav() {
                 document.getElementById("mySidenav").style.width = "200px";
@@ -209,5 +344,4 @@
                 document.getElementById("abc").style.opacity = 1;
             }
         </script>
-	</body>
-</html>
+

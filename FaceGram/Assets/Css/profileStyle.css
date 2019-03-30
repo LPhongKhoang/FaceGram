@@ -137,6 +137,10 @@
     height: 100%;
     float: left;
 }
+.left-profile img{
+    width: 150px;
+    height: 150px;
+}
 
 .right-profile {
     width: 70%;
@@ -221,7 +225,9 @@ hr {
 img:hover {
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
-
+a:hover{
+    color: #fff;
+}
 .clear {
     clear: both;
 }
@@ -299,7 +305,6 @@ img:hover {
     border-radius: 2px;
     text-align: center;
 }
-
 .btn2 {
     display: inline-block;
     height: 55%;
@@ -311,11 +316,3 @@ img:hover {
     text-align: center;
 }
 
-.btn1:hover {
-    background-color: green;
-    
-}
-
-.btn2:hover {
-    background-color: green;
-}

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace FaceGram.Controllers
 {
-    public class PostInteractController : BaseController
+    public class PostInteractController : BaseUserController
     {
         private IPostInteractService postInteractService;
 

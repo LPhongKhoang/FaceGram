@@ -12,5 +12,7 @@ namespace FaceGram.Service
         char verifyAccount(string email, string password);
 
         User getByEmail(string email);
+
+        string getRole(string userId);
     }
 }

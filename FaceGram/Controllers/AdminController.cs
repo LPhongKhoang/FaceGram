@@ -8,7 +8,7 @@ using FaceGram.Service;
 
 namespace FaceGram.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseAdminController
     {
         private IAdminService adminService;
 
@@ -17,10 +17,11 @@ namespace FaceGram.Controllers
             this.adminService = adminService;
         }
 
+
         // GET: Admin
         public ActionResult Index()
         {
-            Session.Add(Common.CommonConstant.USER_SESSION, Common.CommonConstant.USER_SESSION);
+            
             string clickButton = Request.QueryString["clickButton"];
             string linkClick = Request.QueryString["linkClick"];
             AdminModel adminModel;

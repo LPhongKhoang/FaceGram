@@ -7,7 +7,7 @@ using FaceGram.Service;
 
 namespace FaceGram.Controllers
 {
-    public class LogoutController : Controller
+    public class LogoutController : BaseController
     {
         private ILogoutService logoutService;
 
@@ -24,9 +24,8 @@ namespace FaceGram.Controllers
 
         public ActionResult Logout()
         {
-            if(Session[Common.CommonConstant.USER_SESSION] != null)
-            {
-                Session.Remove(Common.CommonConstant.USER_SESSION);
+            if (removeUserInSession())
+            { 
                 return RedirectToAction("Index", "Login");
             }
             return View();

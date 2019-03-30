@@ -1,13 +1,22 @@
-﻿.sidenav {
+﻿
+.container{
+    width: 80%;
+}
+
+.admin-header{
+    padding: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgb(231, 231, 231);
+}
+
+.sidenav {
     height: 100%;
-    width: 0;
+    width: 200px;
     position: fixed; /*Div can't run*/
-    z-index: 1;
-    top: 0; /*Fix to corner*/
+    top: 78px; /*Fix to corner*/
     left: 0;
     background-color: #050228;
     overflow: hidden; /*Hide div overflow*/
-    transition: 1s; /*Time to display width 0 - 250*/
     padding-top: 50px;
 }
 
@@ -15,6 +24,7 @@
         padding: 6px 6px 6px 20px;
         text-decoration: none; /*Remove underline*/
         display: block; /*Display independence with tag a above*/
+        font-size: 20px;
     }
 
     .sidenav .closebtn {
@@ -23,41 +33,16 @@
         top: 10px;
     }
 
-#main {
-    transition: 1s;
-}
-
-.btn-logout {
-    margin-top: 5px;
-    width: 10%;
-    height: 100%;
-    float: right;
-}
-
 .btn-admin {
     margin: 5px 10px 10px 10px;
 }
 
+.btn-logout{
+    margin-top: 15px;
+}
+
 .openNav {
     text-decoration: none;
-}
-
-.logout-btn {
-    float: right;
-    width: 52px;
-    background-color: red;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-}
-
-    .logout-btn:hover {
-        color: green;
-    }
-
-.table-display {
-    border: solid;
 }
 
 .closebtn {
@@ -91,14 +76,38 @@
     }
 
 .aa {
-    width: 100px;
+    display: inline-block;
+    height: 100%;
+    width: 130px;
     background-color: #3b5998;
     color: white;
     text-decoration: none;
     border-radius: 2px;
-    margin-left: 20px;
+    margin: auto;
+    text-align: center;
 }
+
 
     .aa:hover {
         background-color: goldenrod;
     }
+
+
+th .column-btn {
+    display: block;
+    width: 30px;
+}
+
+#mySidenav{
+    transition: width 0.5s;
+}
+
+#table-data{
+    margin-top: 130px;
+    margin-left: 200px;
+    transition: margin-left 0.5s;
+}
+#table-data .table-title{
+    margin-top: 30px;
+}
+

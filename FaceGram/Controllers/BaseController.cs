@@ -10,18 +10,6 @@ namespace FaceGram.Controllers
 {
     public class BaseController : Controller
     {
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            LoginedUser user = (LoginedUser)Session[CommonConstant.USER_SESSION];
-            if(user == null)
-            {
-                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(
-                    new { controller = "Login", action = "Index" }));
-            }
-
-            base.OnActionExecuting(filterContext);
-        }
-
         protected LoginedUser getUserInSession()
         {
             return (LoginedUser) Session[CommonConstant.USER_SESSION];
@@ -30,6 +18,20 @@ namespace FaceGram.Controllers
         protected string getUserIdInSession()
         {
             return getUserInSession().Id;
+        }
+
+        protected bool removeUserInSession()
+        {
+            try
+            {
+                Session.Remove(CommonConstant.USER_SESSION);
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+            
         }
     }
 }

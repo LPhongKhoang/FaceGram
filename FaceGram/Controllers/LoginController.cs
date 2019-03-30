@@ -27,6 +27,7 @@ namespace FaceGram.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
@@ -37,16 +38,27 @@ namespace FaceGram.Controllers
                 {
 
                     User user = userService.getByEmail(model.Email);
+                    string role = userService.getRole(user.id);
+
                     LoginedUser loginedUser = new LoginedUser()
                     {
                         Id = user.id,
                         UserName = user.username,
                         UserFullName = user.fullname,
-                        Avatar = user.avatar
+                        Avatar = user.avatar,
+                        Role = role
                     };
 
                     Session.Add(CommonConstant.USER_SESSION, loginedUser);
-                    return RedirectToAction("Index", "Home");
+
+                    if(role == CommonConstant.ROLE_USER)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }else if (role == CommonConstant.ROLE_ADMIN)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    
 
                 }
                 else if (result == CommonConstant.LOGIN_FAIL)

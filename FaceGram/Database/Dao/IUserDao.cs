@@ -28,5 +28,7 @@ namespace FaceGram.Database.Dao
 
         void editUserProfile(UserProfileModel userProfileModel, string uid);
         List<User> getAllFriends(string id);
+
+        string getRole(string userId);
     }
 }

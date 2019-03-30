@@ -9,7 +9,7 @@ using FaceGram.Service;
 
 namespace FaceGram.Controllers
 {
-    public class MyProfileController : BaseController
+    public class MyProfileController : BaseUserController
     {
         private IProfileService profileService;
 

@@ -1,12 +1,7 @@
-﻿/*Common tag*/
-*{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-
-body {
-    background-color: #f3f3f3;
+﻿body {
+    background-color: #f8f8f8;
+    overflow: scroll;
+    /* height: 100%; */
 }
 
 ul{
@@ -15,6 +10,12 @@ ul{
 
 a{
     text-decoration: none;
+}
+img:hover{
+    border: none;
+}
+a:hover{
+    border: none;
 }
 
 

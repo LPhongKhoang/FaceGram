@@ -2,18 +2,6 @@
 /*----- Profile style -----*/
 
 
-.btn {
-    background: silver;
-    border: none;
-    width: 40px;
-    height: 50px;
-    margin-right: 22px;
-    margin-left: 20px;
-    margin-top: 9px;
-    float: left;
-    font-size: 35px;
-}
-
 .top {
     border: solid;
     border-radius: 5px;
@@ -85,18 +73,6 @@
     clear: both;
 }
 
-.btn {
-    background: silver;
-    border: none;
-    width: 40px;
-    height: 50px;
-    margin-right: 22px;
-    margin-left: 20px;
-    margin-top: 9px;
-    float: left;
-    font-size: 35px;
-}
-
 .div-button {
     width: 78%;
     height: 60px;
@@ -136,6 +112,11 @@
     width: 25%;
     height: 100%;
     float: left;
+    padding: 40px 0;
+}
+.left-profile img{
+    width: 150px;
+    height: 150px;
 }
 
 .right-profile {
@@ -299,7 +280,6 @@ img:hover {
     border-radius: 2px;
     text-align: center;
 }
-
 .btn2 {
     display: inline-block;
     height: 55%;
@@ -310,12 +290,7 @@ img:hover {
     border-radius: 2px;
     text-align: center;
 }
-
-.btn1:hover {
-    background-color: green;
-    
+.btn1:hover, .btn2:hover{
+    color: #fff;
 }
 
-.btn2:hover {
-    background-color: green;
-}

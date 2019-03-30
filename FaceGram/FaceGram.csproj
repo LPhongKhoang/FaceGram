@@ -275,6 +275,7 @@
     <Compile Include="Models\PostProfileModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\RelationshipModel.cs" />
+    <Compile Include="Models\UploadPostModel.cs" />
     <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Service\AdminService.cs" />
     <Compile Include="Service\EditProfileService.cs" />
@@ -304,11 +305,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Css\adminStyle.css" />
+    <Content Include="Assets\Css\postViewStyle.css" />
     <Content Include="Assets\Css\homeStyle.css" />
     <Content Include="Assets\Css\editProfile.css" />
     <Content Include="Assets\Css\loginStyle.css" />
     <Content Include="Assets\Css\profileStyle.css" />
     <Content Include="Assets\Js\adminScript.js" />
+    <Content Include="Assets\Css\uploadPostStyle.css" />
     <Content Include="Assets\Js\interactPostScript.js" />
     <Content Include="Assets\Js\uploadPostScript.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -350,6 +353,8 @@
     <Content Include="Views\MyProfile\Index.cshtml" />
     <Content Include="Views\EditProfile\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialPost.cshtml" />
+    <Content Include="Views\Shared\_PartialUploadPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

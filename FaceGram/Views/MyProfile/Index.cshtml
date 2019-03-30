@@ -4,125 +4,119 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section StylePage {
-	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-	 <link rel="stylesheet" href="~/Assets/Css/profileStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Assets/Css/profileStyle.css" />
 }
 
 
 
-        <dialog id="myDialog">
-            <form action="../user/upstatus" method="POST">
-                <div class="form-group">
-                    Select Picture
-                    <br>
-                    <select name="image">
-                        <option value="https://danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg" >hotgirl.jpg</option>
-                        <option value="http://a9.vietbao.vn/images/vn899/55/2018/07/20180718-giat-minh-hinh-anh-qua-khu-cua-tram-anh-world-cup-1.jpg" >tramanh.jpg</option>
-                        <option value="https://znews-photo.zadn.vn/w860/Uploaded/bpivpjbp/2018_07_09/29513250_595830057426746_6138543117098794662_n.jpg" >khangan.jpg</option>
-                        <option value="https://ss-images.catscdn.vn/2018/08/20/3507670/somi.jpg" >somi.jpg</option>
-                        <option value="https://lh3.googleusercontent.com/s5ecXrgDkTQvJzbZDKdLY322GBfobtMMy_i8e5Jo0ONn7ADK2BfXOGK75bVDpij-Uf3svWsas_UPfQBrzL2vPZPy1MinVxK8CA=w1600-rj" >nancy.jpg</option>
-                    </select>
-                </div>
-                <br>
-                <div class="form-group">
-                    <p>Bạn đang nghĩ gì: </p>
-                    <input type="text" class="form-control" name="status" placeholder="Status" />
-                </div>
-                <br>
-                <p style="text-align: center">
-                    <button type="button" name="btnClose" onclick="closeDialog()">Close</button>
-                    <input type="submit" name="btnRegister" class="btn-register" align="center" value="Save Change"></input>
-                </p>
-            </form>
-        </dialog>
-        <div id="abc" >
+<dialog id="myDialog">
+    <form action="../user/upstatus" method="POST">
+        <div class="form-group">
+            Select Picture
+            <br>
+            <select name="image">
+                <option value="https://danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg">hotgirl.jpg</option>
+                <option value="http://a9.vietbao.vn/images/vn899/55/2018/07/20180718-giat-minh-hinh-anh-qua-khu-cua-tram-anh-world-cup-1.jpg">tramanh.jpg</option>
+                <option value="https://znews-photo.zadn.vn/w860/Uploaded/bpivpjbp/2018_07_09/29513250_595830057426746_6138543117098794662_n.jpg">khangan.jpg</option>
+                <option value="https://ss-images.catscdn.vn/2018/08/20/3507670/somi.jpg">somi.jpg</option>
+                <option value="https://lh3.googleusercontent.com/s5ecXrgDkTQvJzbZDKdLY322GBfobtMMy_i8e5Jo0ONn7ADK2BfXOGK75bVDpij-Uf3svWsas_UPfQBrzL2vPZPy1MinVxK8CA=w1600-rj">nancy.jpg</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <p>Bạn đang nghĩ gì: </p>
+            <input type="text" class="form-control" name="status" placeholder="Status" />
+        </div>
+        <br>
+        <p style="text-align: center">
+            <button type="button" name="btnClose" onclick="closeDialog()">Close</button>
+            <input type="submit" name="btnRegister" class="btn-register" align="center" value="Save Change"></input>
+        </p>
+    </form>
+</dialog>
+<div id="abc">
 
 
-                
-                    <div class="clear">
 
-                    </div>
-                    <div class="clear">
+    <div class="clear">
 
-                    </div>
-                </div>
-                <div class="blank">
+    </div>
+    <div class="clear">
 
-                </div>
+    </div>
+</div>
+<div class="blank">
 
-                <div class="mid-profile">
-                    <div class="left-profile">
-                        
-                        <img id="avatar2" style="background-image: url('https://scontent.fhan2-2.fna.fbcdn.net/v/t1.0-9/54728416_1519749971489145_4888168241685331968_n.jpg?_nc_cat=1&_nc_oc=AQmjFMGAGa8J5WVybXQTdEkn25AUdXexyhad2wM9WhHxYuO_XwkC7SmK0IRaguNpZck&_nc_ht=scontent.fhan2-2.fna&oh=3ed792ab2cb4519f8004e0c4e7f9af26&oe=5D41240A')">
-      
+</div>
 
-                    </div>
+<div class="mid-profile">
+    <div class="left-profile">
+        <img class="img-responsive img-circle" src="@Model.UserProfileModel.avatar" />
+    </div>
 
-                    <div class="right-profile">
-                        <div class="row-0">
-                            <div class="profule-username">
-                                @Model.UserProfileModel.username
-                            </div>
-                            <div class="setting-logout">
-                                <a href="@Url.Action("Index","EditProfile")" class="btn1" href="../user/user_profile">Setting</a>
-                                <a href="@Url.Action("Logout","Logout")" class="btn2" href="../logout">Log out</a>
-                            </div>
-                            <div class="clear">
+    <div class="right-profile">
+        <div class="row-0">
+            <div class="profule-username">
+                @Model.UserProfileModel.username
+            </div>
+            <div class="setting-logout">
+                <a href="@Url.Action("Index","EditProfile")" class="btn1">Setting</a>
+                <a href="@Url.Action("Logout","Logout")" class="btn2">Log out</a>
+            </div>
+            <div class="clear">
 
-                            </div>
-
-                        </div>
-                        <div class="row-1">
-                            <div class="numberPost">
-                               @Model.NumberPostUser Posts
-                            </div>
-                            <div class="numberUserFollow">
-                                @Model.NumberUserFollow Followwer
-                            </div>
-                            <div class="numberFollow">
-                                @Model.NumberRelationship Following
-                            </div>
-                            <div class="clear">
-
-                            </div>
-                        </div>
-
-                        <div class="row-2">
-                            @Model.UserProfileModel.fullname
-                        </div>
-
-                        <div class="row-3">
-                            <div class="profile-email">
-                                <i class="fas fa-envelope"></i> @Model.UserProfileModel.email
-                            </div>
-                            <div class="profile-website">
-                                <i class="fas fa-file-contract"></i> @Model.UserProfileModel.website
-                            </div>
-                            <div class="profilw-biography">
-                                <i class="fas fa-address-book"></i> @Model.UserProfileModel.biography
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <hr>
-                <div class="bot">
-                    <!--Display image grid-->
-
-                </div>
-
+            </div>
 
         </div>
+        <div class="row-1">
+            <div class="numberPost">
+                @Model.NumberPostUser Posts
+            </div>
+            <div class="numberUserFollow">
+                @Model.NumberUserFollow Followwer
+            </div>
+            <div class="numberFollow">
+                @Model.NumberRelationship Following
+            </div>
+            <div class="clear">
 
-		 <div class="row"> 
-		@foreach(var postProfileModel in Model.GetcurrentPost) {
-			<div class="column col-md-4 col-lg-4">
-				<img class="img-responsive" src="@postProfileModel.image">
-			  </div>
-		}
+            </div>
+        </div>
 
-		</div>
-							
+        <div class="row-2">
+            @Model.UserProfileModel.fullname
+        </div>
 
-       
+        <div class="row-3">
+            <div class="profile-email">
+                <i class="fas fa-envelope"></i> @Model.UserProfileModel.email
+            </div>
+            <div class="profile-website">
+                <i class="fas fa-file-contract"></i> @Model.UserProfileModel.website
+            </div>
+            <div class="profilw-biography">
+                <i class="fas fa-address-book"></i> @Model.UserProfileModel.biography
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr>
+<div class="bot">
+    <!--Display image grid-->
+
+</div>
+
+<div class="row">
+    @foreach (var postProfileModel in Model.GetcurrentPost)
+    {
+        <div class="column col-md-4 col-lg-4">
+            <img class="img-responsive" src="@postProfileModel.image">
+        </div>
+    }
+
+</div>
+
+

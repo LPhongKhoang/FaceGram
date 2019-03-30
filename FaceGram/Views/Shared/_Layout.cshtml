@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <!--Custom Css-->
     <link rel="stylesheet" href="~/Assets/Css/style.css" />
+    <!--Upload post Css-->
+    <link rel="stylesheet" href="~/Assets/Css/uploadPostStyle.css" />
     @RenderSection("StylePage", false)
 </head>
 <body>
+    @{Html.RenderPartial("_PartialUploadPost"); }
     <div class="navbar navbar-fixed-top">
         <div class="container">
             @*<div class="navbar-header">
@@ -43,8 +46,8 @@
                     <div class="features">
                         <ul>
                             <li><a href="@Url.Action("Index","Explore")"><img src="~/Assets/Images/web_icon/explore.PNG" class="img-responsive" /></a></li>
-                            <li><a href="@Url.Action("Index","EditProfile")"><img src="~/Assets/Images/web_icon/favorite.PNG" class="img-responsive"/></a></li>
-                            <li><a href="@Url.Action("Index","MyProfile")"><img src="~/Assets/Images/web_icon/profile.PNG" class="img-responsive"/></a></li>
+                            <li><a href="#" id="btnOpenUploadPost" data-toggle="modal" data-target="#uploadPostModel"><img src="~/Assets/Images/web_icon/favorite.PNG" class="img-responsive" /></a></li>
+                            <li><a href="@Url.Action("Index","MyProfile")"><img src="~/Assets/Images/web_icon/profile.PNG" class="img-responsive" /></a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,9 +67,9 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <!--Bootstrap core javascript-->
     <script src="~/Scripts/bootstrap.min.js"></script>
-	<!--Upload Post Popup javascript -->
-	<script src="~/Assets/Js/uploadPostScript.js"></script>
-	@RenderSection("ScriptPage", false)
-  
+    <!--Upload Post Popup javascript -->
+    <script src="~/Assets/Js/uploadPostScript.js"></script>
+    @RenderSection("ScriptPage", false)
+
 </body>
 </html>

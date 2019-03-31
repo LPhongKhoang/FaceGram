@@ -38,6 +38,7 @@ namespace FaceGram
             container.RegisterSingleton<IFavoriteDao, FavoriteDao>();
             container.RegisterSingleton<INewFeedService, NewFeedService>();
             container.RegisterSingleton<IPostInteractService, PostInteractService>();
+            container.RegisterSingleton<IAddAccountService, AddAccountService>();
         }
     }
 }

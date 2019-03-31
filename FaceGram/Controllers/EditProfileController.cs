@@ -21,13 +21,9 @@ namespace FaceGram.Controllers
         // GET: EditProfile
         public ActionResult Index()
         {
-            string userID = getUserInSession().Id;
-
-            UserProfileModel userProfileModel = editProfileService.getUser(userID);
-
-            return View(userProfileModel);
+            return View();
         }
-
+        [HttpPost]
         public ActionResult EditProfile(UserProfileModel model)
         {
             if(ModelState.IsValid)
@@ -36,7 +32,15 @@ namespace FaceGram.Controllers
                 return RedirectToAction("Index", "MyProfile");
             }
             return View("Index");
-            
+        }
+        [HttpGet]
+        public ActionResult EditProfile()
+        {
+            string userID = getUserInSession().Id;
+
+            UserProfileModel userProfileModel = editProfileService.getUser(userID);
+
+            return View(userProfileModel);
         }
     }
 }

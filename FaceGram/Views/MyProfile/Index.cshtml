@@ -62,7 +62,7 @@
                 @Model.UserProfileModel.username
             </div>
             <div class="setting-logout">
-                <a href="@Url.Action("Index","EditProfile")" class="btn1">Setting</a>
+                <a href="@Url.Action("EditProfile","EditProfile")" class="btn1">Setting</a>
                 <a href="@Url.Action("Logout","Logout")" class="btn2">Log out</a>
             </div>
             <div class="clear">
@@ -110,12 +110,31 @@
 </div>
 
 <div class="row">
-    @foreach (var postProfileModel in Model.GetcurrentPost)
-    {
-        <div class="column col-md-4 col-lg-4">
-            <img class="img-responsive" src="@postProfileModel.image">
-        </div>
+    @{
+        int i = 0;
     }
+    <div class="column col-md-4 col-lg-4">
+        @for (i = 0; i < Math.Ceiling(Model.GetcurrentPost.Count() / 3.0); i++)
+        {
+            <a href="/Home/Post/@Model.GetcurrentPost[i].id"><img class="img-responsive post-image" src="@Model.GetcurrentPost[i].image"></a>
+        }
+    </div>
+
+
+    <div class="column col-md-4 col-lg-4">
+        @for (int start = i; i < start + Math.Ceiling((Model.GetcurrentPost.Count() - 1) / 3.0); i++)
+        {
+            <a href="/Home/Post/@Model.GetcurrentPost[i].id"><img class="img-responsive post-image" src="@Model.GetcurrentPost[i].image"></a>
+        }
+    </div>
+
+
+    <div class="column col-md-4 col-lg-4">
+        @for (int start = i; i < start + (Model.GetcurrentPost.Count() / 3); i++)
+        {
+            <a href="/Home/Post/@Model.GetcurrentPost[i].id"><img class="img-responsive post-image" src="@Model.GetcurrentPost[i].image"></a>
+        }
+    </div>
 
 </div>
 

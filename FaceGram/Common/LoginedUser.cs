@@ -16,5 +16,6 @@ namespace FaceGram.Common
         public string Avatar { get; set; }
 
         public string Role { get; set; }
+
     }
 }

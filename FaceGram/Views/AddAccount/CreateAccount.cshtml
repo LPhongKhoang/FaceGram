@@ -1,8 +1,9 @@
 ﻿@{
     Layout = null;
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Create Account";
 }
-@model FaceGram.Models.LoginModel
+@model FaceGram.Models.AccountModel
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +18,15 @@
     <div class="container login-container">
         <div class="row">
             <div class="col-md-12 login-form-1">
-                <h3>FaceGram</h3>
+                <h3>Register Account</h3>
 
-                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                @using (Html.BeginForm("CreateAccount", "AddAccount", FormMethod.Post))
                 {
                     @Html.ValidationSummary(true, string.Empty, new { @class="text-danger"})
+					<div class="form-group">
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Your Username" })
+                        @Html.ValidationMessageFor(model => model.Username, string.Empty, new { @class = "text-danger" })
+                    </div>
                     <div class="form-group">
                         @Html.TextBoxFor(model=>model.Email, new { @class="form-control", @autofocus="autofocus", @placeholder="Your Email"})
                         @Html.ValidationMessageFor(model => model.Email, string.Empty, new { @class = "text-danger" } )
@@ -30,16 +35,13 @@
                         @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Your Password" })
                         @Html.ValidationMessageFor(model => model.Password, string.Empty, new { @class = "text-danger" })
                     </div>
-                    <div class="form-check">
-                        @Html.CheckBoxFor(model=>model.IsRemember, new { @class="form-check-input", @id="ckRememberMe"})
-                        <label class="form-check-label" for="ckRememberMe">Remember me</label>
+					<div class="form-group">
+                        @Html.TextBoxFor(model => model.Phonenumber, new { @class = "form-control", @placeholder = "Your Phone number" })
+                        @Html.ValidationMessageFor(model => model.Phonenumber, string.Empty, new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btnSubmit" value="Login" />
-                    </div>
-                    <div class="form-group">
-                        <a href="#" class="ForgetPwd pull-left">Forget Password?</a>
-                        <a href="@Url.Action("CreateAccount","AddAccount")" class="Register pull-right">Create new account</a>
+                        <input type="submit" class="btnSubmit pull-left" value="Submit" />
+                        <a href="@Url.Action("Index","Login")" class="Login Register pull-right">or Login</a>
                     </div>
                 }
 

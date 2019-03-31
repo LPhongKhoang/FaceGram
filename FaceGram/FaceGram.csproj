@@ -364,6 +364,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Images\image_post\" />
     <Folder Include="Assets\Images\web_icon\" />
     <Folder Include="Views\BaseAdmin\" />
     <Folder Include="Views\BaseUser\" />

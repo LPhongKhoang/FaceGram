@@ -9,8 +9,8 @@ namespace FaceGram.Models
     public class UploadPostModel
     {
         [Required()]
-        public string Content { get; set; }
+        public string postContent { get; set; }
 
-        public string Image { get; set; }
+        public HttpPostedFileWrapper postImage { get; set; }
     }
 }

@@ -51,5 +51,19 @@ namespace FaceGram.Database.Dao
                         }).FirstOrDefault();
             return new Post() { id = latestPost.PostId, image = latestPost.PostImage, content = latestPost.PostContent, time = latestPost.PostTime };
         }
+
+        public bool insert(Post post)
+        {
+            try
+            {
+                dbContext.Posts.Add(post);
+                dbContext.SaveChanges();
+                return true;
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+        }
     }
 }

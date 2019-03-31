@@ -1,4 +1,8 @@
-﻿@model FaceGram.Models.PostModel
+﻿@using FaceGram.Common;
+@model FaceGram.Models.PostModel
+@{ 
+    var defaultImage = CommonConstant.IMAGE_DEFAULT;
+}
 
 <div class="post-basic">
     <div class="post-header post-align-side">
@@ -15,7 +19,10 @@
 
     </div>
     <div class="post-image">
-        <img class="img-responsive" src="@Model.PostImage" />
+        @if (Model.PostImage != defaultImage)
+        {
+            <img class="img-responsive" src="@Model.PostImage" />
+        }
     </div>
     <div class="post-interact post-align-side">
         <div class="post-like">
@@ -32,7 +39,10 @@
                     <span class="text-comment">@commentModel.Content</span>
                 </div>
             }
-
+            @if(Model.Top3CommentModels.Count > 0)
+            {
+                <a href="/Home/Post/@Model.PostId" class="text-primary">View all comments</a>
+            }
 
         </div>
     </div>

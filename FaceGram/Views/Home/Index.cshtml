@@ -3,4 +3,33 @@
 }
 @model FaceGram.Models.NewFeedModel
 
-<h2>@Model.Message</h2>
+@section StylePage{
+    <link rel="stylesheet" href="~/Assets/Css/homeStyle.css" />   
+}
+
+
+
+<div class="home-content row">
+    <div class="newfeeds col-md-8 col-lg-8" id="newfeeds">
+
+        @if (Model.PostModelList.Count >= 1)
+        {
+
+            foreach (var postModel in Model.PostModelList)
+            {
+                Html.RenderPartial("_PartialPost", postModel);
+            }
+
+        }
+
+
+
+
+
+    </div>
+    <div class="artical col-md- col-lg-4">
+        @{
+            Html.RenderPartial("_PartialExplorePeople", Model.UnfollowUsers);
+        }
+    </div>
+</div>

@@ -13,7 +13,7 @@ namespace FaceGram.Database.EF
         public Post()
         {
             Comments = new HashSet<Comment>();
-            Users = new HashSet<User>();
+            Favorites = new HashSet<Favorite>();
         }
 
         [StringLength(20)]
@@ -33,9 +33,9 @@ namespace FaceGram.Database.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
 
-        public virtual User User { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Favorite> Favorites { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

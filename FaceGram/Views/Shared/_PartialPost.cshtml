@@ -1,0 +1,57 @@
+﻿@using FaceGram.Common;
+@model FaceGram.Models.PostModel
+@{ 
+    var defaultImage = CommonConstant.IMAGE_DEFAULT;
+    string title = ViewBag.Title;
+}
+
+<div class="post-basic">
+    <div class="post-header post-align-side">
+        <div class="avatar-name pull-left">
+            <img class="img-responsive img-circle" src="@Model.UserOfPost.Avatar" />
+            <a href="/MyProfile/Index/@Model.UserOfPost.Id" class="nickname">@Model.UserOfPost.Username</a>
+        </div>
+        <div class="time-ago pull-right">
+            <span>@Model.TimeAgo</span>
+        </div>
+    </div>
+    <div class="post-content post-align-side">
+        <p>@Model.PostContent</p>
+
+    </div>
+    <div class="post-image">
+        @if (Model.PostImage != defaultImage)
+        {
+            <img class="img-responsive" src="@Model.PostImage" />
+        }
+    </div>
+    <div class="post-interact post-align-side">
+        <div class="post-like">
+            <img class="img-responsive icon-like" width="25" data-postid="@Model.PostId"
+                 src='~/Assets/Images/web_icon/@(Model.IsLikeByLoginedUser? "favorite-liked.PNG" : "favorite.PNG")' />
+            <span>@Model.FormatLikes</span>
+        </div>
+        <div class="post-comments" id='post-comments-@Model.PostId'>
+            @foreach (var commentModel in Model.Top3CommentModels)
+            {
+                <div class="comment">
+                    <img class="img-responsive img-circle" src="@commentModel.UserOfComment.Avatar" />
+                    <a href="/MyProfile/Index/@commentModel.UserOfComment.Id" class="nickname">@commentModel.UserOfComment.Username</a>
+                    <span class="text-comment">@commentModel.Content</span>
+                </div>
+            }
+
+        </div>
+        @if (Model.Top3CommentModels.Count > 0 && title != "Post")
+        {
+            <a href="/Home/Post/@Model.PostId" class="text-primary">View all comments</a>
+        }
+    </div>
+    <div class="add-comment">
+        <div class="input-group">
+            <input class="addComment" type="text" placeholder="Write a comment" data-postid="@Model.PostId" aria-describedby="basic-addon2">
+            <span class="input-group-addon btnAddComment">Post</span>
+        </div>
+
+    </div>
+</div>

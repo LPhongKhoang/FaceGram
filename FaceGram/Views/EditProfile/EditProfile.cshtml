@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FaceGram.Models.UserProfileModel
+
+@section StylePage {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Assets/Css/editProfile.css" />
+}
+<div class="background-edit">
+    <div class="user-profile-bot">
+        <div class="mid-profile">
+            @using (Html.BeginForm("EditProfile", "EditProfile", FormMethod.Post))
+            {
+                @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+                <div class="avatar-username">
+                    <img class="img-responsive img-circle" src="@Model.avatar" />
+                    <span class="nickname">@Model.username</span>
+                </div>
+                <div class="avatar-option">
+                    <select class="option" name="myFile">
+                        <option value="https://danongonline.com.vn/wp-content/uploads/2018/02/anh-girl-xinh-9-1.jpg">hotgirl.jpg</option>
+                        <option value="http://a9.vietbao.vn/images/vn899/55/2018/07/20180718-giat-minh-hinh-anh-qua-khu-cua-tram-anh-world-cup-1.jpg">tramanh.jpg</option>
+                        <option value="https://znews-photo.zadn.vn/w860/Uploaded/bpivpjbp/2018_07_09/29513250_595830057426746_6138543117098794662_n.jpg">khangan.jpg</option>
+                        <option value="https://ss-images.catscdn.vn/2018/08/20/3507670/somi.jpg">somi.jpg</option>
+                        <option value="https://lh3.googleusercontent.com/s5ecXrgDkTQvJzbZDKdLY322GBfobtMMy_i8e5Jo0ONn7ADK2BfXOGK75bVDpij-Uf3svWsas_UPfQBrzL2vPZPy1MinVxK8CA=w1600-rj">nancy.jpg</option>
+                    </select>
+                </div>
+                <table style="width:100%">
+                    <tr class="row rowName">
+                        <td class="title">Name</td>
+                        <td class="content">
+                            @Html.TextBoxFor(model => @Model.fullname, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Fullname" })
+                            @Html.ValidationMessageFor(model => @Model.fullname, string.Empty, new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="title">Username</td>
+                        <td class="content">
+                            @Html.TextBoxFor(model => @Model.username, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Username" })
+                            @Html.ValidationMessageFor(model => @Model.username, string.Empty, new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="title">Website</td>
+                        <td class="content">
+                            @Html.TextBoxFor(model => @Model.website, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Website" })
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="title">Biography</td>
+                        <td class="content">
+                            @Html.TextBoxFor(model => @Model.biography, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Biography" })
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="title">Email</td>
+                        <td class="content">
+                            @Html.TextBoxFor(model => @Model.email, new { @readonly="readonly", @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Email" })
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="title">Phone number</td>
+                        <td class="content">
+                            @Html.TextBoxFor(model => @Model.phone_number, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Phone number" })
+                            @Html.ValidationMessageFor(model => @Model.phone_number, string.Empty, new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="title">Gender</td>
+                        <!--Gender is 0 or 1 so will check to display checked-->
+                        <td class=" center">
+                            <input type="radio" name="gender" value="Male" checked> Male
+                            <input type="radio" name="gender" value="Female" style="margin-left: 20px;"> Female
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="title"></td>
+                        <td class=" center"><button class="btn btn-success" type="submit" name="submit-update">Update</button></td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+

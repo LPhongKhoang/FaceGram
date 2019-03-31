@@ -1,4 +1,5 @@
-﻿using FaceGram.Models;
+﻿using FaceGram.Common;
+using FaceGram.Models;
 using FaceGram.Service;
 using System;
 using System.Collections.Generic;
@@ -8,34 +9,38 @@ using System.Web.Mvc;
 
 namespace FaceGram.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseUserController
     {
-        ITestService testService;
+        INewFeedService newFeedService;
+        IPostInteractService postInteractService;
 
-        public HomeController(ITestService testService)
+        public HomeController(INewFeedService newFeedService, IPostInteractService postInteractService)
         {
-            this.testService = testService;
+            this.newFeedService = newFeedService;
+            this.postInteractService = postInteractService;
         }
 
         public ActionResult Index()
         {
-            NewFeedModel model = new NewFeedModel();
-            model.Message = testService.sayHello() + ": " + testService.GetHashCode();
+            LoginedUser loginedUser = getUserInSession();
+
+            UserAvatarModel userAvatarModel = new UserAvatarModel() { Id=loginedUser.Id, Avatar=loginedUser.Avatar, Username=loginedUser.UserName};
+
+            NewFeedModel model = newFeedService.getNewFeedModel(loginedUser.Id);
+            model.UserAvatar = userAvatarModel;
+
+
             return View(model);
         }
 
-        public ActionResult About()
+        public ActionResult Post(string id)
         {
-            ViewBag.Message = "Your application description page.";
+            String loginedUserId = getUserIdInSession();
+            PostModel model = postInteractService.getPostModel(id, loginedUserId);
 
-            return View();
+            return View(model);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
     }
 }

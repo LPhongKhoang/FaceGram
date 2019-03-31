@@ -13,7 +13,9 @@ namespace FaceGram.Database.EF
         }
 
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Favorite> Favorites { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Relationship> Relationships { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -29,6 +31,18 @@ namespace FaceGram.Database.EF
 
             modelBuilder.Entity<Comment>()
                 .Property(e => e.post_id)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Favorite>()
+                .Property(e => e.id)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Favorite>()
+                .Property(e => e.uId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Favorite>()
+                .Property(e => e.pId)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Post>()
@@ -49,9 +63,22 @@ namespace FaceGram.Database.EF
                 .HasForeignKey(e => e.post_id);
 
             modelBuilder.Entity<Post>()
-                .HasMany(e => e.Users)
-                .WithMany(e => e.Posts1)
-                .Map(m => m.ToTable("Favorite").MapLeftKey("post_id").MapRightKey("uid"));
+                .HasMany(e => e.Favorites)
+                .WithRequired(e => e.Post)
+                .HasForeignKey(e => e.pId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Relationship>()
+                .Property(e => e.id)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Relationship>()
+                .Property(e => e.uId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Relationship>()
+                .Property(e => e.fId)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Role>()
                 .Property(e => e.uid)
@@ -95,18 +122,31 @@ namespace FaceGram.Database.EF
                 .HasForeignKey(e => e.uid);
 
             modelBuilder.Entity<User>()
+                .HasMany(e => e.Favorites)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.uId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
                 .HasMany(e => e.Posts)
                 .WithOptional(e => e.User)
                 .HasForeignKey(e => e.uid);
 
             modelBuilder.Entity<User>()
-                .HasOptional(e => e.Role)
-                .WithRequired(e => e.User);
+                .HasMany(e => e.Relationships)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.fId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.Users1)
-                .WithMany(e => e.Users)
-                .Map(m => m.ToTable("Relationship").MapLeftKey("friend_id").MapRightKey("uid"));
+                .HasMany(e => e.Relationships1)
+                .WithRequired(e => e.User1)
+                .HasForeignKey(e => e.uId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasOptional(e => e.Role)
+                .WithRequired(e => e.User);
         }
     }
 }

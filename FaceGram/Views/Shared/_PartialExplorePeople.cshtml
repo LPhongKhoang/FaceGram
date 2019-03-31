@@ -1,0 +1,48 @@
+﻿@using System.Collections;
+@using FaceGram.Common;
+@model List<FaceGram.Models.UserAvatarModel>
+
+
+<div class="follow-suggest">
+    <div class="follow-header">
+        @if (ViewBag.Title != "People")
+        {
+            <p class="title pull-left">Suggestions for You</p>
+            <p class="pull-right"><a href="/Explore/People">See All</a></p>
+        }
+        else
+        {
+            <p class="title pull-left">All Users</p>
+        }
+    </div>
+    <div class="follow-body">
+        @foreach (var user in Model)
+        {
+            <div class="follow-item clearfix">
+                <div class="avatar-name pull-left">
+                    <img class="img-responsive img-circle" src="@user.Avatar" />
+                    <a href="/MyProfile/Index/@user.Id" class="nickname">@user.Username</a>
+                </div>
+                <div class="follow-option pull-right">
+                    @{
+                        var btnClass = "btn-default";
+                        switch (user.RelationshipStatus)
+                        {
+                            case CommonConstant.REL_FRIEND:
+                                btnClass = "btn-success";
+                                break;
+                            case CommonConstant.REL_FOLLOWING:
+                                btnClass = "btn-info";
+                                break;
+                            case CommonConstant.REL_FAN:
+                                btnClass = "btn-danger";
+                                break;
+                        }
+                    }
+                    <button class="btn btn-sm @btnClass btn-follow" data-userid="@user.Id">@user.RelationshipStatus</button>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

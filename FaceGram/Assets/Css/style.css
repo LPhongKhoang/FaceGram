@@ -1,7 +1,26 @@
 ﻿body {
-    background-color: #f3f3f3;
+    background-color: #f8f8f8;
+    overflow: scroll;
 }
 
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+img:hover{
+    border: none;
+}
+a:hover{
+    border: none;
+}
+
+
+
+
+/*style for Layout*/
 .container{
     max-width: 800px;
 }
@@ -17,6 +36,9 @@
     border-bottom: 1px solid #e8e8e8;
 }
 
+.navbar .container {
+    max-width: 900px;
+}
 .navbar .container .row{
     padding-top: 15px;
 }
@@ -35,9 +57,19 @@
 
 }
 
+.branch{
+    font-size: 20px;
+}
+
+.logo img{
+    margin-top: -10px;
+}
+
 /*style for body*/
 .body-content{
     margin-top: 80px;
 }
+
+
 
 

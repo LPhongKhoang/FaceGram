@@ -1,0 +1,48 @@
+﻿.upload-post-box{
+    margin-top: 100px;
+}
+
+.modal-header{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.modal-header .modal-title{
+    font-weight: 800;
+}
+
+.upload-content-avatar{
+    padding: 0 15px;
+}
+
+.avatar-img{
+    padding: 0;
+}
+
+.avatar-img img{
+    width: 50px;
+    height: 50px;
+}
+
+.upload-content{
+    padding: 0;
+    padding-left: 10px;
+}
+
+#show-imge{
+    width: 100%;
+    height: auto;
+}
+
+textarea.input-no-border{
+    width: 100%;
+    min-height: 150px;
+    height: auto;
+    border: none;
+    font-size: 25px;
+}
+
+textarea.input-no-border:focus{
+    outline: none;
+}
+

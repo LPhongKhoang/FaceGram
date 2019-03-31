@@ -1,0 +1,7 @@
+﻿#post-detail{
+    padding: 50px;
+}
+#post-detail .post-comments{
+    max-height: 500px;
+    overflow: auto;
+}

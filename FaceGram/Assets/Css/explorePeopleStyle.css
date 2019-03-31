@@ -1,0 +1,33 @@
+﻿.follow-suggest{
+    font-size: 12px;
+    background-color: #fff;
+    padding: 10px;
+    min-height: 100px;
+    max-height: 700px;
+    border: 1px solid #e8e8e8;
+    overflow: auto;
+}
+
+.follow-header{
+    margin-bottom: 40px;
+}
+.follow-header .title{
+    font-weight: bold;
+    color: rgb(182, 180, 180);
+}
+
+.follow-item{
+    margin-bottom: 20px;
+}
+
+.avatar-name img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.btn-follow{
+    padding: 4px;
+    margin-top: 2px;
+}

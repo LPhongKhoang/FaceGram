@@ -1,0 +1,113 @@
+﻿
+.container{
+    width: 80%;
+}
+
+.admin-header{
+    padding: 10px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgb(231, 231, 231);
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed; /*Div can't run*/
+    top: 78px; /*Fix to corner*/
+    left: 0;
+    background-color: #050228;
+    overflow: hidden; /*Hide div overflow*/
+    padding-top: 50px;
+}
+
+    .sidenav a {
+        padding: 6px 6px 6px 20px;
+        text-decoration: none; /*Remove underline*/
+        display: block; /*Display independence with tag a above*/
+        font-size: 20px;
+    }
+
+    .sidenav .closebtn {
+        position: absolute; /*Button math position with slidenav*/
+        margin-left: 150px;
+        top: 10px;
+    }
+
+.btn-admin {
+    margin: 5px 10px 10px 10px;
+}
+
+.btn-logout{
+    margin-top: 15px;
+}
+
+.openNav {
+    text-decoration: none;
+}
+
+.closebtn {
+    color: white;
+}
+
+.a1 {
+    color: yellowgreen;
+}
+
+    .a1:hover {
+        color: white;
+    }
+
+.closebtn:hover {
+    color: chocolate;
+}
+
+.AddUser {
+    display: inline-block;
+    font-size: 15px;
+    outline: none;
+    color: black;
+    background-color: coral;
+    border-radius: 2px;
+    border-color: silver;
+}
+
+    .AddUser:hover {
+        background-color: green;
+    }
+
+.aa {
+    display: inline-block;
+    height: 100%;
+    width: 130px;
+    background-color: #3b5998;
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+    margin: auto;
+    text-align: center;
+}
+
+
+    .aa:hover {
+        background-color: goldenrod;
+    }
+
+
+th .column-btn {
+    display: block;
+    width: 30px;
+}
+
+#mySidenav{
+    transition: width 0.5s;
+}
+
+#table-data{
+    margin-top: 130px;
+    margin-left: 200px;
+    transition: margin-left 0.5s;
+}
+#table-data .table-title{
+    margin-top: 30px;
+}
+

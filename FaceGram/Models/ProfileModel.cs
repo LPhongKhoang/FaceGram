@@ -17,5 +17,6 @@ namespace FaceGram.Models
         public int NumberRelationship { get; set; }
 
         public List<PostProfileModel> GetcurrentPost { get; set; }
+        
     }
 }

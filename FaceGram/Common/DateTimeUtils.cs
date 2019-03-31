@@ -27,7 +27,12 @@ namespace FaceGram.Common
             }
             else
             {
-                if (day >= 1)
+                if (day >= 30)
+                {
+                    int month = day / 30;
+                    return formatTimeAgo(month, "month");
+                }
+                else if(day >= 1)
                 {
                     return formatTimeAgo(day, "day");
                 }

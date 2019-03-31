@@ -1,6 +1,6 @@
 ﻿$(document).ready(() => {
     // Toggle click on image.icon-like 
-    $(".icon-like").off("click").on("click", (e) => {
+    $("#newfeeds").on("click", ".icon-like", (e) => {
        
         e.preventDefault();
 
@@ -34,11 +34,15 @@
 
 
     // Enter text to input#addComment -> Post is active
-    $("input.addComment").keyup((e) => {
+    $("#newfeeds").on("keyup", "input.addComment", (e) => {
         let inputText = $(e.target);
         let btnAddComment = inputText.next();
-        let text = inputText.val().trim();    
-        if (text !== "") {
+        let text = inputText.val().trim();  
+
+        // Check if User press Enter
+        if (e.keyCode === 13) {
+            requestAddComment(inputText, btnAddComment);
+        }else if (text !== "") {
             enableBtnAddComment(btnAddComment);
         } else {
             disableBtnAddComment(btnAddComment);
@@ -48,21 +52,13 @@
 
 
     //Add comment 
-    $(".btnAddComment").click((e) => {
+    $("#newfeeds").on("click", ".btnAddComment", (e) => {
         let btnAddComment = $(e.target);
         let inputText = btnAddComment.prev();
         requestAddComment(inputText, btnAddComment);
 
     });
 
-    $("input.addComment").keyup((e) => {
-        // Check if User press Enter
-        if (e.keyCode === 13) {
-            let inputText = $(e.target);
-            let btnAddComment = inputText.next();
-            requestAddComment(inputText, btnAddComment);
-        }
-    });
 
 });
 

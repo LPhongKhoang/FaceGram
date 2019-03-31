@@ -7,6 +7,6 @@ namespace FaceGram.Models
 {
     public class PostDetailModel : PostModel
     {
-        public List<CommentModel> allCommentModels { get; set; }
+        public List<CommentModel> AllCommentModels { get; set; }
     }
 }

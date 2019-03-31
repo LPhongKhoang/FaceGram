@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FaceGram.Database.EF;
+using FaceGram.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +32,8 @@ namespace FaceGram.Service
         /// <param name="imagePath"></param>
         /// <returns>return post id</returns>
         string addPost(string userId, string postContent, string imagePath);
+
+        PostModel getPostModel(string postId, string loginedUserId);
         
 
     }

@@ -246,11 +246,13 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseUserController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
+    <Compile Include="Controllers\ExploreController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\MyProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PostInteractController.cs" />
+    <Compile Include="Controllers\RelationshipController.cs" />
     <Compile Include="Database\Dao\CommentDao.cs" />
     <Compile Include="Database\Dao\FavoriteDao.cs" />
     <Compile Include="Database\Dao\ICommentDao.cs" />
@@ -309,6 +311,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Css\adminStyle.css" />
+    <Content Include="Assets\Css\allPeopleStyle.css" />
+    <Content Include="Assets\Css\explorePeopleStyle.css" />
+    <Content Include="Assets\Css\postDetailStyle.css" />
     <Content Include="Assets\Css\postViewStyle.css" />
     <Content Include="Assets\Css\homeStyle.css" />
     <Content Include="Assets\Css\editProfile.css" />
@@ -316,6 +321,7 @@
     <Content Include="Assets\Css\profileStyle.css" />
     <Content Include="Assets\Js\adminScript.js" />
     <Content Include="Assets\Css\uploadPostStyle.css" />
+    <Content Include="Assets\Js\explorePeopleScript.js" />
     <Content Include="Assets\Js\interactPostScript.js" />
     <Content Include="Assets\Js\uploadPostScript.js" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -361,6 +367,9 @@
     <Content Include="Views\Shared\_PartialUploadPost.cshtml" />
     <Content Include="Views\AddAccount\CreateAccount.cshtml" />
     <Content Include="Views\EditProfile\EditProfile.cshtml" />
+    <Content Include="Views\Shared\_PartialExplorePeople.cshtml" />
+    <Content Include="Views\Explore\People.cshtml" />
+    <Content Include="Views\Home\Post.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -371,6 +380,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Logout\" />
     <Folder Include="Views\PostInteract\" />
+    <Folder Include="Views\Relationship\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />

@@ -22,5 +22,7 @@ namespace FaceGram.Database.Dao
         List<Post> getAllPost();
 
         bool insert(Post post);
+
+        Post getPostById(string postId);
     }
 }

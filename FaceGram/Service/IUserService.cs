@@ -1,4 +1,5 @@
 ﻿using FaceGram.Database.EF;
+using FaceGram.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace FaceGram.Service
         User getByEmail(string email);
 
         string getRole(string userId);
+
+        List<UserAvatarModel> getAllUserExcept(string userId);
     }
 }

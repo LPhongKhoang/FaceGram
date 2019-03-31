@@ -41,12 +41,13 @@ namespace FaceGram.Database.Dao
         public bool insertComment(Comment comment)
         {
             try
-            {
+            { 
                 dbContext.Comments.Add(comment);
                 dbContext.SaveChanges();
                 return true;
             }catch(Exception e)
             {
+                Console.WriteLine(e.Message);
                 return false;
             }
         }
@@ -64,6 +65,28 @@ namespace FaceGram.Database.Dao
 
             dbContext.Comments.Remove(deleteComment);
             dbContext.SaveChanges();
+        }
+
+        public List<CommentModel> getAllCommentModelsOfPost(string postId)
+        {
+            var comments = (from comment in dbContext.Comments
+                            join user in dbContext.Users
+                            on comment.uid equals user.id
+                            where comment.post_id == postId
+                            orderby comment.time descending
+                            select new CommentModel()
+                            {
+                                PostId = comment.post_id,
+                                UserOfComment = new UserAvatarModel()
+                                {
+                                    Id = user.id,
+                                    Username = user.username,
+                                    Avatar = user.avatar
+                                },
+                                Content = comment.content
+                            });
+
+            return comments.ToList();
         }
     }
 }

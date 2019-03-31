@@ -1,0 +1,12 @@
+﻿.all-people .follow-suggest {
+    font-size: 20px;
+    background-color: #fff;
+    padding: 20px;
+    min-height: 100px;
+    border: 1px solid #e8e8e8;
+    max-height: fit-content;
+}
+
+.all-people .follow-suggest .follow-header{
+    margin-bottom: 80px;
+}

@@ -2,13 +2,14 @@
 @model FaceGram.Models.PostModel
 @{ 
     var defaultImage = CommonConstant.IMAGE_DEFAULT;
+    string title = ViewBag.Title;
 }
 
 <div class="post-basic">
     <div class="post-header post-align-side">
         <div class="avatar-name pull-left">
             <img class="img-responsive img-circle" src="@Model.UserOfPost.Avatar" />
-            <a href="#" class="nickname">@Model.UserOfPost.Username</a>
+            <a href="/MyProfile/Index/@Model.UserOfPost.Id" class="nickname">@Model.UserOfPost.Username</a>
         </div>
         <div class="time-ago pull-right">
             <span>@Model.TimeAgo</span>
@@ -35,16 +36,16 @@
             {
                 <div class="comment">
                     <img class="img-responsive img-circle" src="@commentModel.UserOfComment.Avatar" />
-                    <a href="#" class="nickname">@commentModel.UserOfComment.Username</a>
+                    <a href="/MyProfile/Index/@commentModel.UserOfComment.Id" class="nickname">@commentModel.UserOfComment.Username</a>
                     <span class="text-comment">@commentModel.Content</span>
                 </div>
             }
-            @if(Model.Top3CommentModels.Count > 0)
-            {
-                <a href="/Home/Post/@Model.PostId" class="text-primary">View all comments</a>
-            }
 
         </div>
+        @if (Model.Top3CommentModels.Count > 0 && title != "Post")
+        {
+            <a href="/Home/Post/@Model.PostId" class="text-primary">View all comments</a>
+        }
     </div>
     <div class="add-comment">
         <div class="input-group">

@@ -12,7 +12,7 @@ namespace FaceGram.Service
     {
         UserProfileModel getUser(string userID);
 
-        ProfileModel getProfileModel(string userID);
+        ProfileModel getProfileModel(string userID, string loginedUserId);
 
         List<PostProfileModel> getCurrentPost(string userID);
 

@@ -22,5 +22,7 @@ namespace FaceGram.Service
         /// <param name="id">id of current logined user</param>
         /// <returns></returns>
         List<PostModel> getPostModelsForNewFeed(string id);
+
+        
     }
 }

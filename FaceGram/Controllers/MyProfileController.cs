@@ -20,11 +20,10 @@ namespace FaceGram.Controllers
         }
 
         // GET: MyProfile
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            string userID = getUserInSession().Id;
-
-            ProfileModel profileModel = profileService.getProfileModel(userID);
+            string loginedUserId = getUserIdInSession();
+            ProfileModel profileModel = profileService.getProfileModel(id, loginedUserId);
 
 
             return View(profileModel);

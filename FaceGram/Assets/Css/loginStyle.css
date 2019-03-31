@@ -49,6 +49,10 @@
     text-decoration: none;
 }
 
-.validation-summary-errors ul{
+.login-form-1 .Login{
+    margin-top: 12px;
+}
+
+.validation-summary-errors ul {
     list-style-type: none;
 }

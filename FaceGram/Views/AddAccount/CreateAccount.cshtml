@@ -1,6 +1,6 @@
 ﻿@{
     Layout = null;
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Create Account";
 }
 @model FaceGram.Models.AccountModel
 
@@ -40,7 +40,8 @@
                         @Html.ValidationMessageFor(model => model.Phonenumber, string.Empty, new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btnSubmit" value="Submit" />
+                        <input type="submit" class="btnSubmit pull-left" value="Submit" />
+                        <a href="@Url.Action("Index","Login")" class="Login Register pull-right">or Login</a>
                     </div>
                 }
 

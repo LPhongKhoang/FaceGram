@@ -359,7 +359,6 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_PartialPost.cshtml" />
     <Content Include="Views\Shared\_PartialUploadPost.cshtml" />
-    <Content Include="Views\AddAccount\Index.cshtml" />
     <Content Include="Views\AddAccount\CreateAccount.cshtml" />
     <Content Include="Views\EditProfile\EditProfile.cshtml" />
   </ItemGroup>

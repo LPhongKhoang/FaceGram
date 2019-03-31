@@ -12,10 +12,12 @@ namespace FaceGram.Controllers
     public class HomeController : BaseUserController
     {
         INewFeedService newFeedService;
+        IPostInteractService postInteractService;
 
-        public HomeController(INewFeedService newFeedService)
+        public HomeController(INewFeedService newFeedService, IPostInteractService postInteractService)
         {
             this.newFeedService = newFeedService;
+            this.postInteractService = postInteractService;
         }
 
         public ActionResult Index()
@@ -27,6 +29,14 @@ namespace FaceGram.Controllers
             NewFeedModel model = newFeedService.getNewFeedModel(loginedUser.Id);
             model.UserAvatar = userAvatarModel;
 
+
+            return View(model);
+        }
+
+        public ActionResult Post(string id)
+        {
+            String loginedUserId = getUserIdInSession();
+            PostModel model = postInteractService.getPostModel(id, loginedUserId);
 
             return View(model);
         }

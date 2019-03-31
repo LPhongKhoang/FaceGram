@@ -13,6 +13,7 @@ namespace FaceGram.Service
         private IUserDao userDao;
         private IPostDao postDao;
         private IRelationshipDao relationShipDao;
+        
 
         public ProfileService(IUserDao userDao, IPostDao postDao, IRelationshipDao relationShipDao)
         {
@@ -61,12 +62,15 @@ namespace FaceGram.Service
             return userProfileModel;
         }
 
-        public ProfileModel getProfileModel(string userID)
+        public ProfileModel getProfileModel(string userID, string loginUserId)
         {
             int numberPostUser = postDao.getNumberPostUser(userID);
             int numberUserFollow = relationShipDao.getNumberUserFollow(userID);
             int numberRelationship = relationShipDao.getNumberRelationship(userID);
             UserProfileModel userProfileModel = getUser(userID);
+            string relationshipStatus = relationShipDao.getRelationship(loginUserId, userID);
+            userProfileModel.RelationshipStatus = relationshipStatus;
+
             List<PostProfileModel> listPostProfileModel = getCurrentPost(userID);
 
             ProfileModel profileModel = new ProfileModel()

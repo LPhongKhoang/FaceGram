@@ -24,7 +24,7 @@ namespace FaceGram.Database.Dao
 
         List<User> getListUser();
 
-        List<User> getUserExcept(string id);
+        List<User> getUsersExcept(string id);
 
         void editUserProfile(UserProfileModel userProfileModel, string uid);
         List<User> getAllFriends(string id);
@@ -32,5 +32,8 @@ namespace FaceGram.Database.Dao
         string getRole(string userId);
 
         void insertRole(Role role);
+        List<User> getAllUnFollowUsers(string userId);
+
+        User getUserByPostId(string postId);
     }
 }

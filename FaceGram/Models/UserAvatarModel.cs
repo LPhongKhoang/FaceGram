@@ -12,5 +12,8 @@ namespace FaceGram.Models
         public string Avatar { get; set; }
 
         public string Username { get; set; }
+
+        
+        public string RelationshipStatus { get; set; }
     }
 }

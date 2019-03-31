@@ -1,6 +1,7 @@
 ﻿using FaceGram.Common;
 using FaceGram.Database.Dao;
 using FaceGram.Database.EF;
+using FaceGram.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,12 +15,14 @@ namespace FaceGram.Service
         private IFavoriteDao favoriteDao;
         private ICommentDao commentDao;
         private IPostDao postDao;
+        private IUserDao userDao;
 
-        public PostInteractService(IFavoriteDao favoriteDao, ICommentDao commentDao, IPostDao postDao)
+        public PostInteractService(IFavoriteDao favoriteDao, ICommentDao commentDao, IPostDao postDao, IUserDao userDao)
         {
             this.favoriteDao = favoriteDao;
             this.commentDao = commentDao;
             this.postDao = postDao;
+            this.userDao = userDao;
         }
 
         public bool addComment(string userId, string text, string postId)
@@ -48,6 +51,31 @@ namespace FaceGram.Service
         public int getNumberLikedOfPost(string postId)
         {
             return favoriteDao.getNumberOfLikesInPost(postId);
+        }
+
+        public PostModel getPostModel(string postId, string loginedUserId)
+        {
+            Post post = postDao.getPostById(postId);
+
+            User user = userDao.getUserByPostId(post.id);
+            UserAvatarModel userOfPost = new UserAvatarModel() { Id=user.id, Username=user.username, Avatar=user.avatar};
+            List<CommentModel> top3CommentModels = commentDao.getAllCommentModelsOfPost(post.id);
+            int numberOfLikes = favoriteDao.getNumberOfLikesInPost(post.id);
+            string timeAgo = DateTimeUtils.getTimeAgo(post.time.GetValueOrDefault());
+            bool isLike = favoriteDao.isLikeByUser(loginedUserId, post.id);
+
+            PostModel postModel = new PostModel()
+            {
+                UserOfPost = userOfPost,
+                PostId = post.id,
+                PostContent = post.content,
+                PostImage = post.image,
+                Top3CommentModels = top3CommentModels,
+                NumberLikes = numberOfLikes,
+                TimeAgo = timeAgo,
+                IsLikeByLoginedUser = isLike
+            };
+            return postModel;
         }
 
         public string saveFileToServer(HttpPostedFileWrapper file)
@@ -83,5 +111,7 @@ namespace FaceGram.Service
             return favoriteDao.toggleLikeAPost(userId, postId);
 
         }
+
+        
     }
 }

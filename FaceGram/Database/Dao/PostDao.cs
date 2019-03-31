@@ -49,6 +49,7 @@ namespace FaceGram.Database.Dao
                             PostImage = post.image,
                             PostTime = post.time
                         }).FirstOrDefault();
+            if (latestPost == null) return null; 
             return new Post() { id = latestPost.PostId, image = latestPost.PostImage, content = latestPost.PostContent, time = latestPost.PostTime };
         }
 
@@ -64,6 +65,11 @@ namespace FaceGram.Database.Dao
                 Console.WriteLine(e.Message);
                 return false;
             }
+        }
+
+        public Post getPostById(string postId)
+        {
+            return dbContext.Posts.Find(postId);
         }
     }
 }

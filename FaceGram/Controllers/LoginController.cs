@@ -58,6 +58,10 @@ namespace FaceGram.Controllers
                     {
                         return RedirectToAction("Index", "Admin");
                     }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Account is deactived. Please enter others");
+                    }
                     
 
                 }

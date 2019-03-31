@@ -57,6 +57,14 @@ a:hover{
 
 }
 
+.branch{
+    font-size: 20px;
+}
+
+.logo img{
+    margin-top: -10px;
+}
+
 /*style for body*/
 .body-content{
     margin-top: 80px;

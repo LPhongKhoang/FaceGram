@@ -17,5 +17,7 @@ namespace FaceGram.Database.Dao
         List<Comment> getAllComments();
 
         void deleteComment(string idComment);
+
+        List<CommentModel> getAllCommentModelsOfPost(string postId);
     }
 }

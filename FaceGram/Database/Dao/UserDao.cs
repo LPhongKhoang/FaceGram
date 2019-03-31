@@ -98,7 +98,7 @@ namespace FaceGram.Database.Dao
         }
 
         // return get list user except
-        public List<User> getUserExcept(string id)
+        public List<User> getUsersExcept(string id)
         {
             var listUserExcept = dbContext.Users.Where(x => !x.id.Equals(id));
             return listUserExcept.ToList();
@@ -148,6 +148,29 @@ namespace FaceGram.Database.Dao
             dbContext.Roles.Add(role);
 
             dbContext.SaveChanges();
+        }
+
+        public List<User> getAllUnFollowUsers(string userId)
+        {
+            
+            List<User> friends = getAllFriends(userId);
+            List<string> friendIds = friends.Select(x => x.id).ToList();
+
+            var unfollowUsers = (from user in dbContext.Users
+                                 where user.id != userId && !friendIds.Contains(user.id)
+                                 select user).ToList();
+            return unfollowUsers;
+
+
+        }
+
+        public User getUserByPostId(string postId)
+        {
+            User result = (from user in dbContext.Users
+                        join post in dbContext.Posts
+                        on user.id equals post.uid
+                        where post.id == postId select user).SingleOrDefault();
+            return result;
         }
     }
 }

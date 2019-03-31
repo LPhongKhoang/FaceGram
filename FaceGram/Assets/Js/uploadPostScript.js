@@ -1,6 +1,6 @@
-﻿$(document).ready(() => {
+﻿const defaultImage = "/Assets/Images/image_post/default.png";
 
-    
+$(document).ready(()=>{
     $("#inputPostContent").keyup((e) => {
         let inputPostContent = $("#inputPostContent");
         let postContent = inputPostContent.val();
@@ -72,11 +72,7 @@
         });
 
     });
-    
-
 });
-
-const defaultImage = "/Assets/Images/image_post/default.png";
 
 function addNewPost(data) {
     let newfeedsContainer = $("#newfeeds");
@@ -112,7 +108,7 @@ function addNewPost(data) {
                         </div>
                         <div class="add-comment">
                             <div class="input-group">
-                                <input class="addComment" type="text" placeholder="Write a comment" data-postid=${data.postId}" aria-describedby="basic-addon2">
+                                <input class="addComment" type="text" placeholder="Write a comment" data-postid="${data.postId}" aria-describedby="basic-addon2">
                                 <span class="input-group-addon btnAddComment">Post</span>
                             </div>
 

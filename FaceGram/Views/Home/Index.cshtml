@@ -4,14 +4,9 @@
 @model FaceGram.Models.NewFeedModel
 
 @section StylePage{
-    <link rel="stylesheet" href="~/Assets/Css/homeStyle.css" />
-    <link rel="stylesheet" href="~/Assets/Css/postViewStyle.css" />
-
+    <link rel="stylesheet" href="~/Assets/Css/homeStyle.css" />   
 }
 
-@section ScriptPage{
-    <script src="~/Assets/Js/interactPostScript.js"></script>
-}
 
 
 <div class="home-content row">
@@ -32,7 +27,9 @@
 
 
     </div>
-    <div class="follower col-md-4 col-lg-4">
-
+    <div class="artical col-md- col-lg-4">
+        @{
+            Html.RenderPartial("_PartialExplorePeople", Model.UnfollowUsers);
+        }
     </div>
 </div>

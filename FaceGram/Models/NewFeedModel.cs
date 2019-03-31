@@ -12,6 +12,7 @@ namespace FaceGram.Models
 
         public List<PostModel> PostModelList { get; set; }
 
+        public List<UserAvatarModel> UnfollowUsers { get; set; }
         
     }
 }

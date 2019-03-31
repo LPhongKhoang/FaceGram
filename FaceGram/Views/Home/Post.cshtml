@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model FaceGram.Models.PostModel
+@section StylePage{
+    <link rel="stylesheet" href="~/Assets/Css/postDetailStyle.css" />
+}
+
+<div id="post-detail">
+    <div id="newfeeds">
+        @{Html.RenderPartial("_PartialPost", Model); }
+    </div>
+</div>
+

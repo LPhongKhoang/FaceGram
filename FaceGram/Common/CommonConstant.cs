@@ -34,5 +34,16 @@ namespace FaceGram.Common
         public const string IMAGE_ROOT = "/Assets/Images/image_post/";
         public const string IMAGE_DEFAULT = "/Assets/Images/image_post/default.png";
 
+        /// <summary>
+        /// 2: mean logined User and this User is friend: Friend
+        /// 1: mean logined User is following this User: Following
+        /// 0: mean no relationship between logined User and this User: Fan/Follow Back
+        /// -1: mean logined User is followed by this User: Follow
+        /// </summary>
+        public const string REL_FRIEND = "Friend";
+        public const string REL_FOLLOWING = "Following";
+        public const string REL_FAN = "Fan/Follow Back";
+        public const string REL_FOLLOW = "Follow";
+
     }
 }

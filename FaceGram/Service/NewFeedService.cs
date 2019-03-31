@@ -15,19 +15,26 @@ namespace FaceGram.Service
         IPostDao postDao;
         ICommentDao commentDao;
         IFavoriteDao favoriteDao;
-        public NewFeedService(IUserDao userDao, IPostDao postDao, ICommentDao commentDao, IFavoriteDao favoriteDao)
+        IRelationshipService relationshipService;
+        
+        
+        public NewFeedService(IUserDao userDao, IPostDao postDao, ICommentDao commentDao, IFavoriteDao favoriteDao, 
+            IRelationshipService relationshipService)
         {
             this.userDao = userDao;
             this.postDao = postDao;
             this.commentDao = commentDao;
             this.favoriteDao = favoriteDao;
+            this.relationshipService = relationshipService;
+            
         }
 
         public NewFeedModel getNewFeedModel(string id)
         {
             List<PostModel> postModelList = getPostModelsForNewFeed(id);
+            List<UserAvatarModel> UnfollowUsers = relationshipService.getSuggestUnFollowUser(id);
 
-            NewFeedModel newFeedModel = new NewFeedModel() { PostModelList = postModelList };
+            NewFeedModel newFeedModel = new NewFeedModel() { PostModelList = postModelList, UnfollowUsers = UnfollowUsers };
             return newFeedModel;
         }
 
@@ -41,23 +48,27 @@ namespace FaceGram.Service
             {
                 UserAvatarModel userOfPost = new UserAvatarModel() { Id=friend.id, Username=friend.username, Avatar=friend.avatar};
                 Post latestPost = postDao.getLatestPostOfUser(friend.id);
-                List<CommentModel> top3CommentModels = commentDao.getTop3CommentModels(latestPost.id);
-                int numberOfLikes = favoriteDao.getNumberOfLikesInPost(latestPost.id);
-                string timeAgo = DateTimeUtils.getTimeAgo(latestPost.time.GetValueOrDefault());
-                bool isLike = favoriteDao.isLikeByUser(id, latestPost.id);
+                if (latestPost != null)
+                {
+                    List<CommentModel> top3CommentModels = commentDao.getTop3CommentModels(latestPost.id);
+                    int numberOfLikes = favoriteDao.getNumberOfLikesInPost(latestPost.id);
+                    string timeAgo = DateTimeUtils.getTimeAgo(latestPost.time.GetValueOrDefault());
+                    bool isLike = favoriteDao.isLikeByUser(id, latestPost.id);
 
-                PostModel postModel = new PostModel() {
-                    UserOfPost = userOfPost,
-                    PostId = latestPost.id,
-                    PostContent = latestPost.content,
-                    PostImage = latestPost.image,
-                    Top3CommentModels = top3CommentModels,
-                    NumberLikes = numberOfLikes,
-                    TimeAgo = timeAgo,
-                    IsLikeByLoginedUser = isLike
-                };
+                    PostModel postModel = new PostModel()
+                    {
+                        UserOfPost = userOfPost,
+                        PostId = latestPost.id,
+                        PostContent = latestPost.content,
+                        PostImage = latestPost.image,
+                        Top3CommentModels = top3CommentModels,
+                        NumberLikes = numberOfLikes,
+                        TimeAgo = timeAgo,
+                        IsLikeByLoginedUser = isLike
+                    };
 
-                postModelList.Add(postModel);
+                    postModelList.Add(postModel);
+                }
             }
 
 

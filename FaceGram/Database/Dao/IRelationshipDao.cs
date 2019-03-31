@@ -16,5 +16,9 @@ namespace FaceGram.Database.Dao
         List<Relationship> getAllRelationship();
 
         void deleteRelationshipByID(string idRela);
+
+        bool toggleFollow(string userId, string friendId);
+
+        string getRelationship(string userId, string friendId);
     }
 }

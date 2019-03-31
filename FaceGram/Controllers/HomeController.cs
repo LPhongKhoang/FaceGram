@@ -22,7 +22,11 @@ namespace FaceGram.Controllers
         {
             LoginedUser loginedUser = getUserInSession();
 
+            UserAvatarModel userAvatarModel = new UserAvatarModel() { Id=loginedUser.Id, Avatar=loginedUser.Avatar, Username=loginedUser.UserName};
+
             NewFeedModel model = newFeedService.getNewFeedModel(loginedUser.Id);
+            model.UserAvatar = userAvatarModel;
+
 
             return View(model);
         }

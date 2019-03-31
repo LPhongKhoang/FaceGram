@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FaceGram.Database.EF;
 
 namespace FaceGram.Database.Dao
 {
@@ -21,5 +20,7 @@ namespace FaceGram.Database.Dao
         Post getLatestPostOfUser(string id);
 
         List<Post> getAllPost();
+
+        bool insert(Post post);
     }
 }

@@ -27,5 +27,12 @@ namespace FaceGram.Common
         public const char LOGIN_WRONG_PASSWORD = '2';
         public const char LOGIN_WRONG_EMAIL = '3';
 
+
+        /// <summary>
+        /// Location to save image
+        /// </summary>
+        public const string IMAGE_ROOT = "/Assets/Images/image_post/";
+        public const string IMAGE_DEFAULT = "/Assets/Images/image_post/default.png";
+
     }
 }

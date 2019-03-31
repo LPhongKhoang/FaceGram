@@ -1,25 +1,41 @@
-﻿<!-- Button trigger
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPostModel">
-    Launch demo modal
-</button>
-modal -->
-<!-- Modal -->
+﻿
+@model FaceGram.Models.UserAvatarModel
 
 <div class="modal fade" id="uploadPostModel" tabindex="-1" role="dialog" aria-labelledby="uploadPostModelLabel" aria-hidden="true">
     <div class="modal-dialog upload-post-box" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="uploadPostModelLabel">What's up?</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title pull-left" id="uploadPostModelLabel">Create Post</h5>
+                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                
-            </div>
-            <div class="modal-footer">              
-                <button type="button" class="btn btn-primary" id="btnUpLoadPost">Post</button>
-            </div>
+            <form id="form-upload-post" action="#" method="post">
+                <div class="modal-body">
+                    <div class="upload-content-avatar row">
+                        <div class="col-md-1 col-lg-1 avatar-img">
+                            <img class="img-responsive img-circle" src="@Model.Avatar" />
+                        </div>
+                        <div class="col-md-11 col-lg-11 upload-content">
+                            <textarea class="input-no-border" name="inputPostContent" id="inputPostContent" autofocus placeholder="What's on your mind?"></textarea>
+                        </div>
+                    </div>
+                    <div class="upload-show-img">
+                        <img id="show-img" class="img-responsive"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="upload-input-image pull-left">
+                        <input type="file" accept="image/*" id="inputPostImage" name="inputPostImage" />
+                    </div>
+                    <div class="upload-btn-post pull-right">
+                        <button type="submit" class="btn btn-primary" id="btnUpLoadPost">Post</button>
+                    </div>
+
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
+

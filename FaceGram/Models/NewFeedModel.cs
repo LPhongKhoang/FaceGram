@@ -7,6 +7,9 @@ namespace FaceGram.Models
 {
     public class NewFeedModel
     {
+
+        public UserAvatarModel UserAvatar { get; set; }
+
         public List<PostModel> PostModelList { get; set; }
 
         

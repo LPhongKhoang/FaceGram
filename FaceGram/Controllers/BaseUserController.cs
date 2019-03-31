@@ -1,4 +1,5 @@
 ﻿using FaceGram.Common;
+using FaceGram.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace FaceGram.Controllers
 {
     public class BaseUserController : BaseController
     {
+        public UserAvatarModel UserAvatar;
+ 
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             LoginedUser user = (LoginedUser)Session[CommonConstant.USER_SESSION];
@@ -20,7 +24,8 @@ namespace FaceGram.Controllers
                 
             }
 
-
+            this.UserAvatar = new UserAvatarModel() { Id = user.Id, Avatar = user.Avatar, Username = user.UserName };
+            this.ViewBag.UserAvatar = this.UserAvatar;
             base.OnActionExecuting(filterContext);
         }
     }

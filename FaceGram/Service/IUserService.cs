@@ -17,5 +17,6 @@ namespace FaceGram.Service
         string getRole(string userId);
 
         List<UserAvatarModel> getAllUserExcept(string userId);
+        List<UserAvatarModel> searchUserByUserName(string textSearch, string loginedUserId);
     }
 }

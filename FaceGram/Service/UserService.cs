@@ -43,6 +43,25 @@ namespace FaceGram.Service
             return userDao.getRole(userId);
         }
 
+        public List<UserAvatarModel> searchUserByUserName(string textSearch, string loginedUserId)
+        {
+            List<UserAvatarModel> userAvatars = new List<UserAvatarModel>();
+            List<User> users = userDao.searchUserByUsername(textSearch, loginedUserId);
+            foreach (User user in users)
+            {
+                string relationshipStatus = relationshipService.getRelationship(loginedUserId, user.id);
+                userAvatars.Add(new UserAvatarModel()
+                {
+                    Id = user.id,
+                    Avatar = user.avatar,
+                    Username = user.username,
+                    RelationshipStatus = relationshipStatus
+                });
+            }
+
+            return userAvatars;
+        }
+
         public char verifyAccount(string email, string password)
         {
             return userDao.isExistUser(email, password);

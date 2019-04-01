@@ -23,6 +23,10 @@ namespace FaceGram.Controllers
         public ActionResult Index(string id)
         {
             string loginedUserId = getUserIdInSession();
+            if (id == null)
+            {
+                id = loginedUserId;
+            }
             ProfileModel profileModel = profileService.getProfileModel(id, loginedUserId);
 
 

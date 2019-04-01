@@ -27,5 +27,13 @@ namespace FaceGram.Controllers
 
             return View(allUserAvatars);
         }
+
+        [HttpPost]
+        public ActionResult Search(string textSearch)
+        {
+            string loginedUserId = getUserIdInSession();
+            List<UserAvatarModel> allUserAvatars = userService.searchUserByUserName(textSearch, loginedUserId);
+            return View(allUserAvatars);
+        }
     }
 }

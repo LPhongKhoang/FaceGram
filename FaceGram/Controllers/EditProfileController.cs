@@ -18,11 +18,7 @@ namespace FaceGram.Controllers
             this.editProfileService = editProfileService;
         }
 
-        // GET: EditProfile
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
         [HttpPost]
         public ActionResult EditProfile(UserProfileModel model)
         {
@@ -31,7 +27,11 @@ namespace FaceGram.Controllers
                 editProfileService.editUserProfile(model, getUserInSession().Id);
                 return RedirectToAction("Index", "MyProfile");
             }
-            return View("Index");
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Inputs invalid");
+            }
+            return View(model);
         }
         [HttpGet]
         public ActionResult EditProfile()

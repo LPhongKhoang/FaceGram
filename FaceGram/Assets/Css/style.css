@@ -70,6 +70,12 @@ a:hover{
     margin-top: 80px;
 }
 
+#textSearch{
+    width: 190px;
+    display: inline-block;
+}
 
-
+.btn-search{
+    display: inline-block;
+}
 

@@ -72,6 +72,7 @@ namespace FaceGram.Service
                 PostImage = post.image,
                 Top3CommentModels = top3CommentModels,
                 NumberLikes = numberOfLikes,
+                Time = post.time,
                 TimeAgo = timeAgo,
                 IsLikeByLoginedUser = isLike
             };

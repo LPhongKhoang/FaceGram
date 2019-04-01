@@ -361,7 +361,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\MyProfile\Index.cshtml" />
-    <Content Include="Views\EditProfile\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_PartialPost.cshtml" />
     <Content Include="Views\Shared\_PartialUploadPost.cshtml" />
@@ -370,6 +369,7 @@
     <Content Include="Views\Shared\_PartialExplorePeople.cshtml" />
     <Content Include="Views\Explore\People.cshtml" />
     <Content Include="Views\Home\Post.cshtml" />
+    <Content Include="Views\Explore\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,5 @@
 ﻿@using FaceGram.Models;
-@{ 
+@{
     UserAvatarModel UserAvatar = (UserAvatarModel)ViewBag.UserAvatar;
 }
 
@@ -28,14 +28,21 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="logo">
                         <a href="@Url.Action("Index","Home")">
-                            <img src="~/Assets/Images/web_icon/logoFaceGram.PNG" width="40" height="40"/>
+                            <img src="~/Assets/Images/web_icon/logoFaceGram.PNG" width="40" height="40" />
                             <span class="branch">FaceGram</span>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="search-part">
-                        <input type="text" placeholder="Search people..." />
+                        <form id="form-search" action="/Explore/Search" method="post">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="textSearch" name="textSearch" placeholder="Search people...">
+
+                                <button type="submit" class="input-group-text btn btn-default btn-search">Search</button>
+
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">

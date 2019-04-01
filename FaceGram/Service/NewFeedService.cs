@@ -63,6 +63,7 @@ namespace FaceGram.Service
                         PostImage = latestPost.image,
                         Top3CommentModels = top3CommentModels,
                         NumberLikes = numberOfLikes,
+                        Time = latestPost.time,
                         TimeAgo = timeAgo,
                         IsLikeByLoginedUser = isLike
                     };
@@ -72,6 +73,7 @@ namespace FaceGram.Service
             }
 
 
+            postModelList.Sort();
             return postModelList;
         }
     }

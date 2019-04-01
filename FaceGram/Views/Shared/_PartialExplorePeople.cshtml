@@ -5,14 +5,18 @@
 
 <div class="follow-suggest">
     <div class="follow-header">
-        @if (ViewBag.Title != "People")
+        @if (ViewBag.Title == "Home")
         {
             <p class="title pull-left">Suggestions for You</p>
             <p class="pull-right"><a href="/Explore/People">See All</a></p>
         }
-        else
+        else if (ViewBag.Title == "People")
         {
             <p class="title pull-left">All Users</p>
+        }
+        else if(ViewBag.Title == "Search")
+        {
+            <p class="title pull-left">Search Results</p>
         }
     </div>
     <div class="follow-body">

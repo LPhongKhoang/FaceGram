@@ -7,7 +7,7 @@ namespace FaceGram.Common
 {
     public class DateTimeUtils
     {
-        //private const string[] TimeUnit = {"Year"}
+        
         public static string getTimeAgo(DateTime time)
         {
             if (time == DateTime.MinValue)

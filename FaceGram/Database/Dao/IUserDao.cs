@@ -35,5 +35,6 @@ namespace FaceGram.Database.Dao
         List<User> getAllUnFollowUsers(string userId);
 
         User getUserByPostId(string postId);
+        List<User> searchUserByUsername(string textSearch, string loginedUserId);
     }
 }

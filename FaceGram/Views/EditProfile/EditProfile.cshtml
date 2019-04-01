@@ -15,7 +15,6 @@
         <div class="mid-profile">
             @using (Html.BeginForm("EditProfile", "EditProfile", FormMethod.Post))
             {
-                @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
                 <div class="avatar-username">
                     <img class="img-responsive img-circle" src="@Model.avatar" />
                     <span class="nickname">@Model.username</span>
@@ -59,7 +58,7 @@
                     <tr class="row">
                         <td class="title">Email</td>
                         <td class="content">
-                            @Html.TextBoxFor(model => @Model.email, new { @readonly="readonly", @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Email" })
+                            @Html.TextBoxFor(model => @Model.email, new { @readonly = "readonly", @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Email" })
                         </td>
                     </tr>
                     <tr class="row">
@@ -73,10 +72,12 @@
                         <td class="title">Gender</td>
                         <!--Gender is 0 or 1 so will check to display checked-->
                         <td class=" center">
-                            <input type="radio" name="gender" value="Male" checked> Male
-                            <input type="radio" name="gender" value="Female" style="margin-left: 20px;"> Female
+                            <input type="radio" name="gender" value="true" @(Model.gender == true ? "checked" : "")> Male
+                            <input type="radio" name="gender" value="false" style="margin-left: 20px;" @(Model.gender == false ? "checked" : "")> Female
                         </td>
+
                     </tr>
+
                     <tr class="row">
                         <td class="title"></td>
                         <td class=" center"><button class="btn btn-success" type="submit" name="submit-update">Update</button></td>

@@ -7,7 +7,7 @@ using FaceGram.Common;
 
 namespace FaceGram.Models
 {
-    public class PostModel
+    public class PostModel : IComparable<PostModel>
     {
         public UserAvatarModel UserOfPost { get; set; }
 
@@ -29,8 +29,15 @@ namespace FaceGram.Models
 
         public List<CommentModel> Top3CommentModels { get; set; }
 
+        public DateTime? Time { get; set; }
+
         public string TimeAgo { get; set; }
 
         public bool IsLikeByLoginedUser { get; set; }
+
+        public int CompareTo(PostModel other)
+        {
+            return -this.Time.GetValueOrDefault().CompareTo(other.Time);
+        }
     }
 }

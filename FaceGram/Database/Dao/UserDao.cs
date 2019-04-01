@@ -113,7 +113,7 @@ namespace FaceGram.Database.Dao
             user.username = userProfileModel.username;
             user.website = userProfileModel.website;
             user.biography = userProfileModel.biography;
-            user.phone_number = userProfileModel.phone_number;
+            user.phone_number = userProfileModel.phone_number;         
 
             dbContext.SaveChanges();
         }
@@ -171,6 +171,12 @@ namespace FaceGram.Database.Dao
                         on user.id equals post.uid
                         where post.id == postId select user).SingleOrDefault();
             return result;
+        }
+
+        public List<User> searchUserByUsername(string textSearch, string loginedUserId)
+        {
+            var result = dbContext.Users.Where(x => x.username.Contains(textSearch) && x.id != loginedUserId);
+            return result.ToList();
         }
     }
 }

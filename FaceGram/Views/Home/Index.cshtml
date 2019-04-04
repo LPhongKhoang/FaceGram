@@ -27,9 +27,19 @@
 
 
     </div>
-    <div class="artical col-md- col-lg-4">
-        @{
-            Html.RenderPartial("_PartialSuggestPeople", Model.UnfollowUsers);
-        }
+    <div class="artical col-md-4 col-lg-4">
+
+        <div class="artical-1">
+            <div class="avatar-name">
+                <img class="img-responsive img-circle" src="@Model.UserAvatar.Avatar" />
+                <a href="/MyProfile/Index/@Model.UserAvatar.Id" class="nickname">@Model.UserAvatar.Username</a>
+            </div>
+        </div>
+        <div class="artical-2">
+            @{
+                Html.RenderPartial("_PartialSuggestPeople", Model.UnfollowUsers);
+            }
+        </div>
+        
     </div>
 </div>

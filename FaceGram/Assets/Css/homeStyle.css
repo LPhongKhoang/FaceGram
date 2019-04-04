@@ -1,3 +1,20 @@
 ﻿.artical {
+    /*position: fixed;
+    right: 10%;*/
     padding-left: 5px;
+}
+
+/* Current Logined User Area*/
+.artical-1{
+    margin-bottom: 40px;
+    padding-top: 8px;
+}
+
+.artical-1 .avatar-name img{
+    width: 60px;
+    height: 60px;
+}
+
+.artical-1 .avatar-name .nick-name{
+    font-size: 20px;
 }

@@ -1,7 +1,6 @@
 ﻿@using System.Collections;
 @using FaceGram.Common;
-@using PagedList.Mvc;
-@model PagedList.IPagedList<FaceGram.Models.UserAvatarModel>
+@model List<FaceGram.Models.UserAvatarModel>
 
 
 <div class="follow-suggest">
@@ -49,8 +48,5 @@
             </div>
 
         }
-    </div>
-    <div class="follow-footer">
-        @Html.PagedListPager(Model, page => Url.Action("People", new { page, currentSearch=ViewBag.currentSearch }))
     </div>
 </div>

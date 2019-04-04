@@ -29,46 +29,46 @@
                     </select>
                 </div>
                 <table style="width:100%">
-                    <tr class="row rowName">
+                    <tr class="my-row rowName">
                         <td class="title">Name</td>
                         <td class="content">
                             @Html.TextBoxFor(model => @Model.fullname, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Fullname" })
                             @Html.ValidationMessageFor(model => @Model.fullname, string.Empty, new { @class = "text-danger" })
                         </td>
                     </tr>
-                    <tr class="row">
+                    <tr class="my-row">
                         <td class="title">Username</td>
                         <td class="content">
                             @Html.TextBoxFor(model => @Model.username, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Username" })
                             @Html.ValidationMessageFor(model => @Model.username, string.Empty, new { @class = "text-danger" })
                         </td>
                     </tr>
-                    <tr class="row">
+                    <tr class="my-row">
                         <td class="title">Website</td>
                         <td class="content">
                             @Html.TextBoxFor(model => @Model.website, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Website" })
                         </td>
                     </tr>
-                    <tr class="row">
+                    <tr class="my-row">
                         <td class="title">Biography</td>
                         <td class="content">
                             @Html.TextBoxFor(model => @Model.biography, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Biography" })
                         </td>
                     </tr>
-                    <tr class="row">
+                    <tr class="my-row">
                         <td class="title">Email</td>
                         <td class="content">
                             @Html.TextBoxFor(model => @Model.email, new { @readonly = "readonly", @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Email" })
                         </td>
                     </tr>
-                    <tr class="row">
+                    <tr class="my-row">
                         <td class="title">Phone number</td>
                         <td class="content">
                             @Html.TextBoxFor(model => @Model.phone_number, new { @class = "form-control", @autofocus = "autofocus", @placeholder = "Your Phone number" })
                             @Html.ValidationMessageFor(model => @Model.phone_number, string.Empty, new { @class = "text-danger" })
                         </td>
                     </tr>
-                    <tr class="row">
+                    <tr class="my-row">
                         <td class="title">Gender</td>
                         <!--Gender is 0 or 1 so will check to display checked-->
                         <td class=" center">
@@ -78,7 +78,7 @@
 
                     </tr>
 
-                    <tr class="row">
+                    <tr class="my-row">
                         <td class="title"></td>
                         <td class=" center"><button class="btn btn-success" type="submit" name="submit-update">Update</button></td>
                     </tr>

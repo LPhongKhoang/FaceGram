@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PagedList;
 
 namespace FaceGram.Database.Dao
 {
@@ -98,10 +99,10 @@ namespace FaceGram.Database.Dao
         }
 
         // return get list user except
-        public List<User> getUsersExcept(string id)
+        public IQueryable<User> getUsersExcept(string id)
         {
-            var listUserExcept = dbContext.Users.Where(x => !x.id.Equals(id));
-            return listUserExcept.ToList();
+            var listUserExcept = dbContext.Users.Where(x => !x.id.Equals(id)).OrderBy(x=>x.username);
+            return listUserExcept;
         }
 
         // edit user profile
@@ -173,10 +174,10 @@ namespace FaceGram.Database.Dao
             return result;
         }
 
-        public List<User> searchUserByUsername(string textSearch, string loginedUserId)
+        public IQueryable<User> searchUserByUsername(string textSearch, string loginedUserId)
         {
-            var result = dbContext.Users.Where(x => x.username.Contains(textSearch) && x.id != loginedUserId);
-            return result.ToList();
+            var result = dbContext.Users.Where(x => x.username.Contains(textSearch) && x.id != loginedUserId).OrderBy(x=>x.username);
+            return result;
         }
     }
 }

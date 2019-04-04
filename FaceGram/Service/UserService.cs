@@ -1,6 +1,7 @@
 ﻿using FaceGram.Database.Dao;
 using FaceGram.Database.EF;
 using FaceGram.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,10 @@ namespace FaceGram.Service
             this.relationshipService = relationshipService;
         }
 
-        public List<UserAvatarModel> getAllUserExcept(string userId)
+        public IPagedList<UserAvatarModel> getAllUserExcept(string userId, int page, int pageSize)
         {
             List<UserAvatarModel> userAvatars = new List<UserAvatarModel>();
-            List<User> users = userDao.getUsersExcept(userId);
+            IQueryable<User> users = userDao.getUsersExcept(userId);
             foreach(User user in users)
             {
                 string relationshipStatus = relationshipService.getRelationship(userId, user.id);
@@ -30,7 +31,7 @@ namespace FaceGram.Service
                     Username =user.username, RelationshipStatus=relationshipStatus});
             }
 
-            return userAvatars;
+            return userAvatars.ToPagedList(page, pageSize);
         }
 
         public User getByEmail(string email)
@@ -43,10 +44,10 @@ namespace FaceGram.Service
             return userDao.getRole(userId);
         }
 
-        public List<UserAvatarModel> searchUserByUserName(string textSearch, string loginedUserId)
+        public IPagedList<UserAvatarModel> searchUserByUserName(string textSearch, string loginedUserId, int page, int pageSize)
         {
             List<UserAvatarModel> userAvatars = new List<UserAvatarModel>();
-            List<User> users = userDao.searchUserByUsername(textSearch, loginedUserId);
+            IQueryable<User> users = userDao.searchUserByUsername(textSearch, loginedUserId);
             foreach (User user in users)
             {
                 string relationshipStatus = relationshipService.getRelationship(loginedUserId, user.id);
@@ -59,7 +60,7 @@ namespace FaceGram.Service
                 });
             }
 
-            return userAvatars;
+            return userAvatars.ToPagedList(page, pageSize);
         }
 
         public char verifyAccount(string email, string password)

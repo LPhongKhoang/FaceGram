@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using System.Collections;
-@model List<FaceGram.Models.UserAvatarModel>
+@using PagedList.Mvc
+@model PagedList.IPagedList<FaceGram.Models.UserAvatarModel>
 
 @section StylePage{
     <link rel="stylesheet" href="~/Assets/Css/explorePeopleStyle.css" />

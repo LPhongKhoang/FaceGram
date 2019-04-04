@@ -25,7 +25,7 @@ namespace FaceGram.Database.Dao
 
         public int getNumberRelationship(string uid)
         {
-            int numberUserFollow = dbContext.Relationships.Count(x => x.id.Equals(uid));
+            int numberUserFollow = dbContext.Relationships.Count(x => x.uId.Equals(uid));
 
             return numberUserFollow;
         }

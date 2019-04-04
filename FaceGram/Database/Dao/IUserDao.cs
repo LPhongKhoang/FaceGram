@@ -1,5 +1,6 @@
 ﻿using FaceGram.Database.EF;
 using FaceGram.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace FaceGram.Database.Dao
 
         List<User> getListUser();
 
-        List<User> getUsersExcept(string id);
+        IQueryable<User> getUsersExcept(string id);
 
         void editUserProfile(UserProfileModel userProfileModel, string uid);
         List<User> getAllFriends(string id);
@@ -35,6 +36,6 @@ namespace FaceGram.Database.Dao
         List<User> getAllUnFollowUsers(string userId);
 
         User getUserByPostId(string postId);
-        List<User> searchUserByUsername(string textSearch, string loginedUserId);
+        IQueryable<User> searchUserByUsername(string textSearch, string loginedUserId);
     }
 }

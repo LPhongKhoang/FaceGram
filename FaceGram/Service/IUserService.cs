@@ -1,5 +1,6 @@
 ﻿using FaceGram.Database.EF;
 using FaceGram.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace FaceGram.Service
 
         string getRole(string userId);
 
-        List<UserAvatarModel> getAllUserExcept(string userId);
-        List<UserAvatarModel> searchUserByUserName(string textSearch, string loginedUserId);
+        IPagedList<UserAvatarModel> getAllUserExcept(string userId, int page, int pageSize);
+        IPagedList<UserAvatarModel> searchUserByUserName(string textSearch, string loginedUserId, int page, int pageSize);
     }
 }
